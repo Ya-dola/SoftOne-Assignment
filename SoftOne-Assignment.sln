@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftOne-Assignment", "SoftOne-Assignment.csproj", "{80E3EED8-E689-4179-BC42-52E977EF5CEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80E3EED8-E689-4179-BC42-52E977EF5CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80E3EED8-E689-4179-BC42-52E977EF5CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80E3EED8-E689-4179-BC42-52E977EF5CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80E3EED8-E689-4179-BC42-52E977EF5CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
