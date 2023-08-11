@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="044297dc-7c6a-4ab1-b2b3-4263846a44c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/SoftOne-Assignment.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/d9beca25a6b3bd235a2dd9ad59f5a8389f04b909/0.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/d9beca25a6b3bd235a2dd9ad59f5a8389f04b909/index.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/1.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/10.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/11.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/12.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/2.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/3.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/4.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/5.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/6.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/7.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/8.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/9.pack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/028151afc4bf0a2f710537a48e9454b4f0ac8f4987ded827612f306c72c609d8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/185b8e03da841306a65bfcb1e43a1b558a598a43985a2c5fee2f547ba1e226ed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/1eab7f2a453298d9fc187ac6205b61d540edf9b9a2c4ead6e4c3601dff80a361.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/20901a157cc569169123fa85ae79a678b981793e28f7166dca88085df7e6ccbf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/2367a5f8771d02b6ade1c13fc23d2129937f265d98a9b90bea2da23eb1abdee0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/3348ba16a2bc4b15289c48b622053796614b7e3f4ceb59189d7a70b0411a9964.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/35b5d37ea5ffecaad44e9ae5644421530d87aabc13ed22137fc3f55a8f4a57fa.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/46ec1dee26389405ca665fdcacdbcb2b90e928f864d374e5293f28373c218c15.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/56e0533e405a6b2c36c5d6c6011c4126e81b2b228df90e8d17453936b1074f57.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/5a4a920b71731c15a2702f76bca83b482093e16eef7add0068d2cd2e827ed86e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/5c4eab2a6a32d6c3fe930348343330318d15d1eff5c93e04fbf57f3d7f2556f3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/5fddf430b01c3a8f413613b1d348122c75c783680cef82a5dcb387e478617f59.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/73f3b1d241d919d28baa95f2cc125a7ab18110f6c2e21fcc85c49dd9af17c45a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/7e7e5cb747a656bea2adf76591bc6ccf7c74b4f4ef8676e40aa57888ecf823b2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/82b38f14cccda1cbfa57f348367497946e8a27265bcb035702fec281235f7b78.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/91dbc1ecef2991e2e36c5a9abcc4799808b1bbfdacaefbc3eab66057b8645cc4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/93f93fe746697212542a24fd1305229f5304dde61bafce35b817f584f16cef14.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/a0e27129151ebd0058d911b1c8087370ec7ad8d83d8bbfff17efc81815cec7c7.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/a4534e7161265d8e16ea42665258948bea270ccb051533b2d1d35ff3f84e356b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/a669edd0533e1f36bc40d9064fd213d312d5149238bb4b41d83a76221ce72071.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/aad336707dd4e70a4770015a273873301f4235a282c60d649ce59b21da9ec57c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/b0be65783a1b2f03d141067fa5d99ebb8e5a5715b25bab146cd7d60adc95c04c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/b383af8bb78067557f91309ba55f2e27da3755de25e4d1292731b5ed0fe0e667.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/b97934bcc29de936405f0c5410a271c6c63adf3f8fed9c48d158bb6caac8f28d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/bcd47986e78ab493fbf7013c4bb35a87fe378bcb0eb3209c81963ecef9df9479.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/c306f89ae78c61f351bf2c45390699ff0df6f4cb230eea73dc44b99b8d61affc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/c942ffcdd80fe0d04aaccc7185fe31243cfcbc0b4c55f035bf218e05a0bed811.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/d7b5929f8f07105bebffbf21e02af2c7ac013ceb41264ca6514179c15c4ae594.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/d8f6543f325c777aa4ee963017cfd68c879b6809b8c39ad6d8e42fe9884e9d1b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/e6599c776cedb2491fda0e98129a0058bc4f490809b9ab4648632e0630aee54b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/ee300cc5ee46abaa21140e7dd8bf0ecc092ffc163a014b32382623303391ad07.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/f2317c4ce17c450c8310b13ef7709ae69f886159650fbca2b6af5448d31ac362.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/f2956b1d14724a3aa9de94acd579f89c9799d87366c03fa8de698eaa975ae92f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/f7063ecae35b264c4d44d4a3eca6741293451cfe957fde0a7e1ac7aecba7471b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/f98a17380f323ccd25dd4494ec8e572dc870c9021dd581c81d4e214760bec8de.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/fc12b08b8751af60749bc23762088bdeb1ae10c724e787939b78dce7ea4f2848.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/babel-webpack/feed10411e042765a63f91c5d0f0d760af0326a14424bacc203d459e3e075676.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/student.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Misc/Bard.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoftOne-Assignment.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SoftOne-Assignment.csproj" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Tq0MgL0oV0PjOu1Q8w9TbxszMp" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "L:/Workspaces/Web Dev/Angular/SoftOne-Assignment",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "L:\\Workspaces\\Web Dev\\Angular\\SoftOne-Assignment\\ClientApp\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "L:\\Workspaces\\Web Dev\\Angular\\SoftOne-Assignment\\ClientApp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="L:\Workspaces\Web Dev\Angular\SoftOne-Assignment\ClientApp\src\app" />
+      <recent name="L:\Workspaces\Web Dev\Angular\SoftOne-Assignment\ClientApp\src\app\student-grid" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ng" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/ClientApp/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="ng" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.ng" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="044297dc-7c6a-4ab1-b2b3-4263846a44c4" name="Changes" comment="" />
+      <created>1691755259093</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691755259093</updated>
+      <workItem from="1691755259687" duration="6982000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
