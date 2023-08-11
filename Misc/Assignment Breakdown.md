@@ -11,7 +11,7 @@
 ### Day 2: Basic UI and Web API
 
 - Create a simple UI layout using Angular components. 
-- Implement a basic Angular service to fetch and display a list of students (without details).
+- Implement a basic Angular service to fetch and display a list of localStudents (without details).
 - Set up a basic Web API controller in your ASP.NET project to serve student data.
 - Test the connection between the Angular frontend and the Web API backend by displaying a list of student names.
 
@@ -33,7 +33,7 @@
 ### Day 5: Pagination, Searching, and Sorting
 
 - Implement pagination functionality for the student list in the Angular frontend.
-- Add a search bar to search for students by any field in the list.
+- Add a search bar to search for localStudents by any field in the list.
 - Implement sorting functionality for the student list.
 - Test pagination, searching, and sorting to ensure they are working as expected.
 

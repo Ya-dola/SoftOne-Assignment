@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng serve",
+    "ngproxy": "ng serve --proxy-config proxy.conf.json",
     "prestart": "node aspnetcore-https",
     "start": "run-script-os",
     "start:windows": "ng serve --port 44427 --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\"",
