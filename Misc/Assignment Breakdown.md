@@ -3,14 +3,14 @@
 ### Day 1: Initial Setup and Project Structure
 
 - Set up your development environment: Install Visual Studio Code, .NET SDK 7.0, Angular CLI, and SQL Server Management
-  Studio if not already installed.
-- Create a new ASP.NET project using .NET 7.0.
-- Set up the Angular 15 project within the ASP.NET project.
-- Configure the connection to the MS SQL Server running on Azure.
+  Studio if not already installed. ✅
+- Create a new ASP.NET project using .NET 7.0. ✅
+- Set up the Angular 15 project within the ASP.NET project. ✅
+- Configure the connection to the MS SQL Server running on Azure. ✅
 
 ### Day 2: Basic UI and Web API
 
-- Create a simple UI layout using Angular components.
+- Create a simple UI layout using Angular components. 
 - Implement a basic Angular service to fetch and display a list of students (without details).
 - Set up a basic Web API controller in your ASP.NET project to serve student data.
 - Test the connection between the Angular frontend and the Web API backend by displaying a list of student names.
