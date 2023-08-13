@@ -1,21 +1,37 @@
 <h1>Student Grid</h1>
-<table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>NIC</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Mobile</th>
-      <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let student of students">
-      <td>{{ student.nic }}</td>
-      <td>{{ student.firstName }}</td>
-      <td>{{ student.lastName }}</td>
-      <td>{{ student.mobile }}</td>
-      <td>{{ student.email }}</td>
-    </tr>
-    </tbody>
-</table>
+
+<div class="student-grid">
+  <div class="student-row" *ngFor="let student of students">
+    <div class="student-info">
+      <div><strong>NIC:</strong> {{ student.nic }}</div>
+      <div><strong>First Name:</strong> {{ student.firstName }}</div>
+      <div><strong>Last Name:</strong> {{ student.lastName }}</div>
+      <div><strong>Date:</strong> {{ student.dateOfBirth | date: 'dd/MM/yyyy' }}</div>
+      <div><strong>Email:</strong> {{ student.email }}</div>
+      <div><strong>Mobile:</strong> {{ student.mobile }}</div>
+      <div><strong>Address:</strong> {{ student.address }}</div>
+      <div><strong>Profile Img:</strong> {{ student.profileImg }}</div>
+    </div>
+    <div class="edit-actions">
+      <button (click)="editStudent(student)">Edit</button>
+      <button>Delete</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="editingStudent" class="edit-form">
+  <h2>Edit Student</h2>
+  <form (ngSubmit)="updateStudent()">
+    <div><strong>NIC:</strong> <input [(ngModel)]="editingStudent.nic" name="nic"></div>
+    <div><strong>First Name:</strong> <input [(ngModel)]="editingStudent.firstName" name="firstName"></div>
+    <div><strong>Last Name:</strong> <input [(ngModel)]="editingStudent.lastName" name="lastName"></div>
+    <div><strong>Date:</strong> <input [(ngModel)]="dateOfBirthFormatted" name="dateOfBirth" type="date">
+    </div>
+    <div><strong>Email:</strong> <input [(ngModel)]="editingStudent.email" name="email" type="email"></div>
+    <div><strong>Mobile:</strong> <input [(ngModel)]="editingStudent.mobile" name="mobile"></div>
+    <div><strong>Address:</strong> <input [(ngModel)]="editingStudent.address" name="address"></div>
+    <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>
+    <button type="submit">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>

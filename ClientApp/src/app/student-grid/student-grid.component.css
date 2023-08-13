@@ -1,0 +1,30 @@
+.student-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.student-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.student-info {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.edit-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.edit-form {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}

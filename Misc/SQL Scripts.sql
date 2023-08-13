@@ -7,7 +7,7 @@
     Email       VARCHAR(150),
     Mobile      VARCHAR(15),
     Address     VARCHAR(255),
-    ProfileImg  VARBINARY( MAX)
+    ProfileImg  VARBINARY(MAX)
 );
 
 
@@ -17,5 +17,15 @@ VALUES ('123456789012', 'Ya', 'Dola', '2000-01-15', 'dola@example.com', '1234567
        ('345678901234', 'Nico', 'Robin', '2001-02-28', 'robin@example.com', '5678901234', '789 Oak St', NULL);
 
 
-Select * from [dbo].[students] for JSON PATH, WITHOUT_ARRAY_WRAPPER
+Select * from students;
+
+-- UPDATE students
+-- SET firstName   = @firstName,
+--     lastName    = @lastName,
+--     dateOfBirth = @dateOfBirth,
+--     email       = @email,
+--     mobile      = @mobile,
+--     address     = @address,
+--     profileImg  = @profileImg
+-- WHERE nic = @nic;
 

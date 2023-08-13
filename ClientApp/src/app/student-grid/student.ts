@@ -6,7 +6,7 @@ export class Student {
   public email: string;
   public mobile: string;
   public address: string;
-  public profileImg: Uint8Array;
+  public profileImg: File;
 
   constructor(
     nic: string,
@@ -16,7 +16,7 @@ export class Student {
     email: string,
     mobile: string,
     address: string,
-    profileImg: Uint8Array,
+    profileImg: File,
   ) {
     this.nic = nic;
     this.firstName = firstName;

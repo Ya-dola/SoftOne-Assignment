@@ -1,5 +1,48 @@
 # PLAN
 
+### Day 1
+
+- Set up your development environment: Install Visual Studio Code, .NET SDK 7.0, Angular CLI, and SQL Server Management
+  Studio if not already installed. ✅
+- Create a new ASP.NET project using .NET 7.0. ✅
+- Set up the Angular 15 project within the ASP.NET project. ✅
+- Configure the connection to the MS SQL Server running on Azure. ✅
+
+### Day 2
+
+- Create a simple UI layout using Angular components. ✅
+- Implement a basic Angular service to fetch and display a list of localStudents (without details). ✅
+- Set up a basic Web API controller in your ASP.NET project to serve student data. ✅
+- Test the connection between the Angular frontend and the Web API backend by displaying a list of student names. ✅
+- Connect your Web API to the MS SQL Server database on Azure. ✅
+
+### Day 3
+
+- Create Angular forms for updating student information. ✅
+- Implement the CRUD operations (Create, Read, Update, Delete) in both the Angular frontend and the ASP.NET Web API
+  backend. (Create ❓- Read ✅ - Update ✅ - Delete ❓)
+
+### Day 4
+
+- Restructure the UI with flex grids and css.
+- Expand the student list UI to include a details section.
+- Implement Angular functionality to populate the details section when a student is clicked.  ❓
+- Create Angular forms for inserting new student information.
+- Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
+  correctly. (Create ❓- Read ✅ - Update ✅ - Delete ❓)
+
+### Day 5
+
+- Implement pagination functionality for the student list in the Angular frontend. 
+- Add a search bar to search for localStudents by any field in the list. 
+- Implement sorting functionality for the student list. 
+- Test pagination, searching, and sorting to ensure they are working as expected. 
+
+
+
+# OLD
+
+
 ### Day 1: Initial Setup and Project Structure
 
 - Set up your development environment: Install Visual Studio Code, .NET SDK 7.0, Angular CLI, and SQL Server Management
@@ -17,29 +60,29 @@
 
 ### Day 3: Details Section and CRUD Operations
 
-- Expand the student list UI to include a details section. 
-- Implement Angular functionality to populate the details section when a student is clicked. 
-- Create Angular forms for inserting and updating student information. 
+- Expand the student list UI to include a details section.
+- Restructure the UI with flex grids and css.
+- Implement Angular functionality to populate the details section when a student is clicked.
+- Create Angular forms for inserting and updating student information.
 - Implement the CRUD operations (Create, Read, Update, Delete) in both the Angular frontend and the ASP.NET Web API
-  backend. 
+  backend.
 
 ### Day 4: Web API Integration and Database
 
-- Implement the backend logic in your Web API controller to handle CRUD operations. 
+- Implement the backend logic in your Web API controller to handle CRUD operations.
 - Connect your Web API to the MS SQL Server database on Azure. ✅
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
   correctly. (Read ✅)
 
 ### Day 5: Pagination, Searching, and Sorting
 
-- Implement pagination functionality for the student list in the Angular frontend. 
-- Add a search bar to search for localStudents by any field in the list. 
-- Implement sorting functionality for the student list. 
-- Test pagination, searching, and sorting to ensure they are working as expected. 
+- Implement pagination functionality for the student list in the Angular frontend.
+- Add a search bar to search for localStudents by any field in the list.
+- Implement sorting functionality for the student list.
+- Test pagination, searching, and sorting to ensure they are working as expected.
 
 
-
-# OLD
+# OLDEST
 
 ### Day 1: Project Setup and Core Functionality (Prototype)
 
