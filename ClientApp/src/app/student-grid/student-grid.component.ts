@@ -37,28 +37,14 @@ export class StudentGridComponent implements OnInit {
 
   updateStudent() {
     if (this.editingStudent) {
-      const formData = new FormData();
+      this.editingStudent.profileImg =
+        this.selectedImage ?? this.editingStudent.profileImg;
 
-      // Add student data fields to the FormData
-      formData.append('nic', this.editingStudent.nic);
-      formData.append('firstName', this.editingStudent.firstName);
-      formData.append('lastName', this.editingStudent.lastName);
-      formData.append(
-        'dateOfBirth',
-        this.editingStudent.dateOfBirth.toISOString(),
-      );
-      formData.append('email', this.editingStudent.email);
-      formData.append('mobile', this.editingStudent.mobile);
-      formData.append('address', this.editingStudent.address);
+      console.log(this.editingStudent.profileImg);
 
-      // Add the selected image to the FormData
-      if (this.selectedImage) {
-        formData.append('profileImg', this.selectedImage);
-      }
-
-      // Make an HTTP POST request with the FormData
+      // Make an HTTP POST request to update student data
       this.http
-        .post(`Student/${this.editingStudent.nic}`, formData)
+        .post(`Student/${this.editingStudent.nic}`, this.editingStudent)
         .subscribe(() => {
           console.log('Student updated successfully');
           this.editingStudent = null; // Exit editing mode
@@ -74,11 +60,5 @@ export class StudentGridComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedImage = event.target.files[0];
-  }
-
-  // Getter for formatted dateOfBirth
-  dateOfBirthFormatted(): string {
-    console.log(this.editingStudent?.dateOfBirth);
-    return <string>this.editingStudent?.dateOfBirth.toISOString().slice(0, 10); // Convert to "yyyy-MM-dd" format
   }
 }

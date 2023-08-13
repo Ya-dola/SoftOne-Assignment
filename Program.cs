@@ -49,38 +49,28 @@ app.MapGet("/Student", () =>
     .WithName("GetStudents")
     .WithOpenApi();
 
-app.MapPost("/Student/{nicSelected}", async (HttpRequest request, string nicSelected) =>
+app.MapPost("/Student/{nicSelected}", (Student student, string nicSelected) =>
     {
-        await using var conn = new SqlConnection(connectionString);
+        using var conn = new SqlConnection(connectionString);
         conn.Open();
 
         var command = new SqlCommand(
-            "UPDATE students SET firstName=@firstName, lastName=@lastName, dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, address=@address, profileImg=@profileImg WHERE nic=@nic;",
+            "UPDATE students SET firstName=@firstName, lastName=@lastName, dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, address=@address, profileImg=@profileImg WHERE nic=@nic",
             conn);
 
         command.Parameters.AddWithValue("@nic", nicSelected);
-        command.Parameters.AddWithValue("@firstName", request.Form["firstName"]);
-        command.Parameters.AddWithValue("@lastName", request.Form["lastName"]);
-        command.Parameters.AddWithValue("@dateOfBirth", request.Form["dateOfBirth"]);
-        command.Parameters.AddWithValue("@email", request.Form["email"]);
-        command.Parameters.AddWithValue("@mobile", request.Form["mobile"]);
-        command.Parameters.AddWithValue("@address", request.Form["address"]);
+        command.Parameters.AddWithValue("@firstName", student.FirstName);
+        command.Parameters.AddWithValue("@lastName", student.LastName);
+        command.Parameters.AddWithValue("@dateOfBirth", student.DateOfBirth);
+        command.Parameters.AddWithValue("@email", student.Email);
+        command.Parameters.AddWithValue("@mobile", student.Mobile);
+        command.Parameters.AddWithValue("@address", student.Address);
+        command.Parameters.AddWithValue("@profileImg", student.ProfileImg);
 
-        var uploadedFile = request.Form.Files["profileImg"];
-        if (uploadedFile is { Length: > 0 })
-        {
-            using var memoryStream = new MemoryStream();
-            await uploadedFile.CopyToAsync(memoryStream);
-            command.Parameters.AddWithValue("@profileImg", memoryStream.ToArray());
-        }
-        else
-            command.Parameters.AddWithValue("@profileImg", DBNull.Value);
-
-        await using SqlDataReader reader = command.ExecuteReader();
+        using SqlDataReader reader = command.ExecuteReader();
     })
     .WithName("UpdateStudent")
     .WithOpenApi();
-
 
 app.MapControllerRoute(
     name: "default",

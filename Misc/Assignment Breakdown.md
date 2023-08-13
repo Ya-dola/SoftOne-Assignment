@@ -26,6 +26,7 @@
 
 - Restructure the UI with flex grids and css.
 - Expand the student list UI to include a details section.
+- Handle Uploading of Profile Image
 - Implement Angular functionality to populate the details section when a student is clicked.  ❓
 - Create Angular forms for inserting new student information.
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved

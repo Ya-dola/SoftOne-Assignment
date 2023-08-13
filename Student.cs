@@ -3,8 +3,7 @@
 public class Student
 {
     public Student(string? nic, string? firstName, string? lastName, DateTime dateOfBirth, string? email,
-        string? mobile,
-        string? address, byte[]? profileImg)
+        string? mobile, string? address, byte[]? profileImg)
     {
         Nic = nic;
         FirstName = firstName;
@@ -28,6 +27,7 @@ public class Student
         // ProfileImg = dbValues[7].ToString();
     }
 
+    // NEEDED FOR POST TO WORK - DO NOT DELETE
     public Student()
     {
     }
