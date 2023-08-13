@@ -10,32 +10,34 @@
 
 ### Day 2: Basic UI and Web API
 
-- Create a simple UI layout using Angular components. 
-- Implement a basic Angular service to fetch and display a list of localStudents (without details).
-- Set up a basic Web API controller in your ASP.NET project to serve student data.
-- Test the connection between the Angular frontend and the Web API backend by displaying a list of student names.
+- Create a simple UI layout using Angular components. ✅
+- Implement a basic Angular service to fetch and display a list of localStudents (without details). ✅
+- Set up a basic Web API controller in your ASP.NET project to serve student data. ✅
+- Test the connection between the Angular frontend and the Web API backend by displaying a list of student names. ✅
 
 ### Day 3: Details Section and CRUD Operations
 
-- Expand the student list UI to include a details section.
-- Implement Angular functionality to populate the details section when a student is clicked.
-- Create Angular forms for inserting and updating student information.
+- Expand the student list UI to include a details section. 
+- Implement Angular functionality to populate the details section when a student is clicked. 
+- Create Angular forms for inserting and updating student information. 
 - Implement the CRUD operations (Create, Read, Update, Delete) in both the Angular frontend and the ASP.NET Web API
-  backend.
+  backend. 
 
 ### Day 4: Web API Integration and Database
 
-- Implement the backend logic in your Web API controller to handle CRUD operations.
-- Connect your Web API to the MS SQL Server database on Azure.
+- Implement the backend logic in your Web API controller to handle CRUD operations. 
+- Connect your Web API to the MS SQL Server database on Azure. ✅
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
-  correctly.
+  correctly. (Read ✅)
 
 ### Day 5: Pagination, Searching, and Sorting
 
-- Implement pagination functionality for the student list in the Angular frontend.
-- Add a search bar to search for localStudents by any field in the list.
-- Implement sorting functionality for the student list.
-- Test pagination, searching, and sorting to ensure they are working as expected.
+- Implement pagination functionality for the student list in the Angular frontend. 
+- Add a search bar to search for localStudents by any field in the list. 
+- Implement sorting functionality for the student list. 
+- Test pagination, searching, and sorting to ensure they are working as expected. 
+
+
 
 # OLD
 

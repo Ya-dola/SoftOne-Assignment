@@ -1,21 +1,30 @@
 export class Student {
-  firstName: string;
-  lastName: string;
-  mobile: string;
-  email: string;
-  nic: string;
+  public nic: string;
+  public firstName: string;
+  public lastName: string;
+  public dateOfBirth: Date;
+  public email: string;
+  public mobile: string;
+  public address: string;
+  public profileImg: Uint8Array;
 
   constructor(
+    nic: string,
     firstName: string,
     lastName: string,
-    mobile: string,
+    dateOfBirth: Date,
     email: string,
-    nic: string,
+    mobile: string,
+    address: string,
+    profileImg: Uint8Array,
   ) {
+    this.nic = nic;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.mobile = mobile;
+    this.dateOfBirth = dateOfBirth;
     this.email = email;
-    this.nic = nic;
+    this.mobile = mobile;
+    this.address = address;
+    this.profileImg = profileImg;
   }
 }
