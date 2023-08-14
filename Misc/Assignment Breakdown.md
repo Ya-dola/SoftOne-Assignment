@@ -27,7 +27,7 @@
 - Handle Uploading of Profile Image. ✅
 - Handle Displaying Profile Image from DB ✅
 - Fix Loading of Previous Date when Editing Student Details ✅
-- Make Uploading of Profile Image Not Required ❓
+- Make Uploading of Profile Image Not Required ✅
 - Create Angular forms for inserting new student information.
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
   correctly. (Create ❓- Read ✅ - Update ✅ - Delete ✅)

@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
-string connectionString = app.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")!;
+var connectionString = app.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")!;
 
 app.MapGet("/Student", () =>
     {
@@ -34,16 +34,12 @@ app.MapGet("/Student", () =>
         var command = new SqlCommand("SELECT * FROM students", conn);
         using SqlDataReader reader = command.ExecuteReader();
 
-        if (reader.HasRows)
+        if (!reader.HasRows) return students;
+        while (reader.Read())
         {
-            while (reader.Read())
-            {
-                var values = new object[reader.FieldCount];
-                var fieldCount = reader.GetValues(values);
-                students.Add(new Student(values));
-
-                // Console.WriteLine($"ProfileImg: {values[7]}");
-            }
+            var values = new object[reader.FieldCount];
+            var fieldCount = reader.GetValues(values);
+            students.Add(new Student(values));
         }
 
         return students;
@@ -53,17 +49,14 @@ app.MapGet("/Student", () =>
 
 app.MapGet("/Student/GetProfileImage/{nic}", async (HttpContext context, string nic) =>
     {
-        using var conn = new SqlConnection(connectionString);
+        await using var conn = new SqlConnection(connectionString);
         conn.Open();
 
         var command = new SqlCommand(
-            "SELECT ProfileImg " +
-            "FROM students " +
-            "WHERE NIC=@nic",
-            conn);
+            "SELECT ProfileImg FROM students WHERE NIC=@nic", conn);
         command.Parameters.AddWithValue("@nic", nic);
 
-        using SqlDataReader reader = command.ExecuteReader();
+        await using SqlDataReader reader = command.ExecuteReader();
 
         if (reader.Read())
         {
@@ -72,13 +65,11 @@ app.MapGet("/Student/GetProfileImage/{nic}", async (HttpContext context, string 
                 byte[] imageData = (byte[])reader["ProfileImg"];
 
                 // Determine the content type using Magick.NET - Allows for Various Img Types
-                using (var image = new MagickImage(imageData))
-                {
-                    string contentType = "image/" + image.Format.ToString().ToLower();
-                    context.Response.ContentType = contentType;
+                using var image = new MagickImage(imageData);
+                string contentType = "image/" + image.Format.ToString().ToLower();
+                context.Response.ContentType = contentType;
 
-                    await context.Response.Body.WriteAsync(imageData, 0, imageData.Length);
-                }
+                await context.Response.Body.WriteAsync(imageData, 0, imageData.Length);
             }
             else
             {
@@ -97,16 +88,19 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
     {
         var profileImg = context.Request.Form.Files["profileImg"];
 
-        using var conn = new SqlConnection(connectionString);
+        await using var conn = new SqlConnection(connectionString);
         conn.Open();
 
-        var command = new SqlCommand(
-            "UPDATE students " +
-            "SET firstName=@firstName, lastName=@lastName, " +
-            "dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, " +
-            "address=@address, profileImg=@profileImg " +
-            "WHERE nic=@nic",
-            conn);
+        var commandText = "UPDATE students " +
+                          "SET firstName=@firstName, lastName=@lastName, " +
+                          "dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, " +
+                          "address=@address";
+
+        if (profileImg != null) commandText += ", profileImg=@profileImg";
+
+        commandText += " WHERE nic=@nic";
+
+        var command = new SqlCommand(commandText, conn);
 
         command.Parameters.AddWithValue("@nic", nicSelected);
         command.Parameters.AddWithValue("@firstName",
@@ -124,30 +118,26 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
 
         if (profileImg != null)
         {
-            using (MemoryStream memoryStream = new MemoryStream())
+            using MemoryStream memoryStream = new MemoryStream();
+            await profileImg.CopyToAsync(memoryStream);
+            byte[] imageData = memoryStream.ToArray();
+
+            // Update the database record with imageData
+            SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1)
             {
-                await profileImg.CopyToAsync(memoryStream);
-                byte[] imageData = memoryStream.ToArray();
-
-                // Update the database record with imageData
-                SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1)
-                {
-                    Value = imageData
-                };
-                command.Parameters.Add(profileImgParam);
-
-                // Console.WriteLine("Image Data Base64: " + Convert.ToBase64String(imageData));
-            }
+                Value = imageData
+            };
+            command.Parameters.Add(profileImgParam);
         }
 
-        using SqlDataReader reader = command.ExecuteReader();
+        await using SqlDataReader reader = command.ExecuteReader();
     })
     .WithName("UpdateStudent")
     .WithOpenApi();
 
-app.MapDelete("/Student/{nic}", (HttpContext context, string nic) =>
+app.MapDelete("/Student/{nic}", async (HttpContext context, string nic) =>
     {
-        using var conn = new SqlConnection(connectionString);
+        await using var conn = new SqlConnection(connectionString);
         conn.Open();
 
         var command = new SqlCommand(
@@ -155,19 +145,13 @@ app.MapDelete("/Student/{nic}", (HttpContext context, string nic) =>
             conn);
         command.Parameters.AddWithValue("@nic", nic);
 
-        int rowsAffected = command.ExecuteNonQuery();
-        if (rowsAffected > 0)
-        {
-            context.Response.StatusCode = 204; // No content
-        }
-        else
-        {
-            context.Response.StatusCode = 404; // Student not found
-        }
+        var rowsAffected = command.ExecuteNonQuery();
+        context.Response.StatusCode = rowsAffected > 0
+            ? 204 // No content
+            : 404; // Student not found
     })
     .WithName("DeleteStudent")
     .WithOpenApi();
-
 
 app.MapControllerRoute(
     name: "default",
