@@ -1,3 +1,4 @@
+using System.Data;
 using System.Text.Json;
 using Microsoft.Data.SqlClient;
 using SoftOne_Assignment;
@@ -50,6 +51,42 @@ app.MapGet("/Student", () =>
     .WithName("GetStudents")
     .WithOpenApi();
 
+app.MapGet("/Student/GetProfileImage/{nic}", async (HttpContext context, string nic) =>
+    {
+        using var conn = new SqlConnection(connectionString);
+        conn.Open();
+
+        var command = new SqlCommand(
+            "SELECT ProfileImg " +
+            "FROM students " +
+            "WHERE NIC=@nic",
+            conn);
+        command.Parameters.AddWithValue("@nic", nic);
+
+        using SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.Read())
+        {
+            if (!reader.IsDBNull(reader.GetOrdinal("ProfileImg")))
+            {
+                byte[] imageData = (byte[])reader["ProfileImg"];
+
+                context.Response.ContentType = "image/jpeg"; // Set the appropriate content type
+                await context.Response.Body.WriteAsync(imageData, 0, imageData.Length);
+            }
+            else
+            {
+                context.Response.StatusCode = 404; // Profile image not found
+            }
+        }
+        else
+        {
+            context.Response.StatusCode = 404; // Student not found
+        }
+    })
+    .WithName("GetProfileImage")
+    .WithOpenApi();
+
 app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSelected) =>
     {
         var profileImg = context.Request.Form.Files["profileImg"];
@@ -58,8 +95,10 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
         conn.Open();
 
         var command = new SqlCommand(
-            "UPDATE students SET firstName=@firstName, lastName=@lastName, " +
-            "dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, address=@address " +
+            "UPDATE students " +
+            "SET firstName=@firstName, lastName=@lastName, " +
+            "dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, " +
+            "address=@address, profileImg=@profileImg " +
             "WHERE nic=@nic",
             conn);
 
@@ -86,10 +125,13 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
 
                 // Here, you can update the database record with imageData
                 // For example:
-                command.Parameters.AddWithValue("@profileImg", imageData);
+                SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1)
+                {
+                    Value = imageData
+                };
+                command.Parameters.Add(profileImgParam);
 
-                Console.WriteLine("Profile Img: " + profileImg);
-                Console.WriteLine("Img Data: " + imageData);
+                // Console.WriteLine("Image Data Base64: " + Convert.ToBase64String(imageData));
             }
         }
 

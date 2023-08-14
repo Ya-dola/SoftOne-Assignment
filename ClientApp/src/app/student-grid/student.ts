@@ -7,6 +7,7 @@ export class Student {
   public mobile: string;
   public address: string;
   public profileImg: File;
+  public profileImgUrl: string;
 
   constructor(
     nic: string,
@@ -17,6 +18,7 @@ export class Student {
     mobile: string,
     address: string,
     profileImg: File,
+    profileImgUrl: string,
   ) {
     this.nic = nic;
     this.firstName = firstName;
@@ -26,5 +28,6 @@ export class Student {
     this.mobile = mobile;
     this.address = address;
     this.profileImg = profileImg;
+    this.profileImgUrl = profileImgUrl;
   }
 }

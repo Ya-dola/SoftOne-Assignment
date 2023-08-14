@@ -22,6 +22,12 @@ export class StudentGridComponent implements OnInit {
     this.http.get<Student[]>('Student').subscribe(
       (response) => {
         this.students = response;
+
+        // Iterate through students and remove profileImg data URLs
+        for (const student of this.students) {
+          student.profileImgUrl = `Student/GetProfileImage/${student.nic}`;
+        }
+
         console.log('Students Fetched', response);
       },
       (error) => {

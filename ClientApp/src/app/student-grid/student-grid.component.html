@@ -10,7 +10,10 @@
             <div><strong>Email:</strong> {{ student.email }}</div>
             <div><strong>Mobile:</strong> {{ student.mobile }}</div>
             <div><strong>Address:</strong> {{ student.address }}</div>
-            <div><strong>Profile Img:</strong> {{ student.profileImg }}</div>
+            <div *ngIf="student.profileImgUrl">
+                <strong>Profile Img:</strong>
+                <img [src]="student.profileImgUrl" alt="Profile Image">
+            </div>
         </div>
         <div class="edit-actions">
             <button (click)="editStudent(student)">Edit</button>

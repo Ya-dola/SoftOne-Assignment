@@ -26,7 +26,10 @@ public class Student
         Email = dbValues[4].ToString();
         Mobile = dbValues[5].ToString();
         Address = dbValues[6].ToString();
-        // ProfileImg = dbValues[7].ToString();
+        if (dbValues[7] != DBNull.Value)
+        {
+            ProfileImg = (byte[])dbValues[7];
+        }
     }
 
     // NEEDED FOR POST TO WORK - DO NOT DELETE

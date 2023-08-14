@@ -24,16 +24,17 @@
 
 ### Day 4
 
-- Restructure the UI with flex grids and css. ❓
+- Handle Uploading of Profile Image. ✅
+- Handle Displaying Profile Image from DB ✅
 - Expand the student list UI to include a details section. 
-- Handle Uploading of Profile Image. ❓
+- Create Angular forms for inserting new student information.
 - Implement Angular functionality to populate the details section when a student is clicked.  ❓
-- Create Angular forms for inserting new student information. 
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
   correctly. (Create ❓- Read ✅ - Update ✅ - Delete ❓)
 
 ### Day 5
 
+- Restructure the UI with flex grids and css. ❓
 - Implement pagination functionality for the student list in the Angular frontend.  
 - Add a search bar to search for localStudents by any field in the list. 
 - Implement sorting functionality for the student list. 
