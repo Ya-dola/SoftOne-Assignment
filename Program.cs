@@ -1,5 +1,5 @@
 using System.Data;
-using System.Text.Json;
+using ImageMagick;
 using Microsoft.Data.SqlClient;
 using SoftOne_Assignment;
 
@@ -71,8 +71,14 @@ app.MapGet("/Student/GetProfileImage/{nic}", async (HttpContext context, string 
             {
                 byte[] imageData = (byte[])reader["ProfileImg"];
 
-                context.Response.ContentType = "image/jpeg"; // Set the appropriate content type
-                await context.Response.Body.WriteAsync(imageData, 0, imageData.Length);
+                // Determine the content type using Magick.NET - Allows for Various Img Types
+                using (var image = new MagickImage(imageData))
+                {
+                    string contentType = "image/" + image.Format.ToString().ToLower();
+                    context.Response.ContentType = contentType;
+
+                    await context.Response.Body.WriteAsync(imageData, 0, imageData.Length);
+                }
             }
             else
             {
@@ -123,8 +129,7 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
                 await profileImg.CopyToAsync(memoryStream);
                 byte[] imageData = memoryStream.ToArray();
 
-                // Here, you can update the database record with imageData
-                // For example:
+                // Update the database record with imageData
                 SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1)
                 {
                     Value = imageData

@@ -5,7 +5,7 @@ namespace SoftOne_Assignment;
 public class Student
 {
     public Student(string? nic, string? firstName, string? lastName, DateTime dateOfBirth, string? email,
-        string? mobile, string? address, byte[]? profileImg)
+        string? mobile, string? address)
     {
         Nic = nic;
         FirstName = firstName;
@@ -14,7 +14,6 @@ public class Student
         Email = email;
         Mobile = mobile;
         Address = address;
-        ProfileImg = profileImg;
     }
 
     public Student(Object[] dbValues)
@@ -26,10 +25,6 @@ public class Student
         Email = dbValues[4].ToString();
         Mobile = dbValues[5].ToString();
         Address = dbValues[6].ToString();
-        if (dbValues[7] != DBNull.Value)
-        {
-            ProfileImg = (byte[])dbValues[7];
-        }
     }
 
     // NEEDED FOR POST TO WORK - DO NOT DELETE
@@ -50,8 +45,6 @@ public class Student
     public string? Mobile { get; set; }
 
     public string? Address { get; set; }
-
-    public byte[]? ProfileImg { get; set; }
 
     public static DateTime ParseDateTime(string? input)
     {

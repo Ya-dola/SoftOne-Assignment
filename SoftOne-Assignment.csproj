@@ -14,6 +14,7 @@
     <ItemGroup>
         <PackageReference Include="CorsProxy.AspNet" Version="1.0.0" />
         <PackageReference Include="EntityFramework" Version="6.4.4" />
+        <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.10" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
@@ -24,7 +25,6 @@
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
         <PackageReference Include="Microsoft.OpenApi" Version="1.6.6" />
-        <PackageReference Include="SixLabors.ImageSharp" Version="3.0.1" />
         <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />

@@ -23,7 +23,7 @@ export class StudentGridComponent implements OnInit {
       (response) => {
         this.students = response;
 
-        // Iterate through students and remove profileImg data URLs
+        // Add ProfileImg data URLs
         for (const student of this.students) {
           student.profileImgUrl = `Student/GetProfileImage/${student.nic}`;
         }

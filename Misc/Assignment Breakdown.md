@@ -35,6 +35,7 @@
 ### Day 5
 
 - Restructure the UI with flex grids and css. ❓
+- Fix Loading of Previous Date when Editing Student Details
 - Implement pagination functionality for the student list in the Angular frontend.  
 - Add a search bar to search for localStudents by any field in the list. 
 - Implement sorting functionality for the student list. 
