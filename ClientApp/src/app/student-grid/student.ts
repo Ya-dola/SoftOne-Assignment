@@ -3,6 +3,7 @@ export class Student {
   public firstName: string;
   public lastName: string;
   public dateOfBirth: Date;
+  public dobString: string;
   public email: string;
   public mobile: string;
   public address: string;
@@ -13,6 +14,7 @@ export class Student {
     firstName: string,
     lastName: string,
     dateOfBirth: Date,
+    dobString: string,
     email: string,
     mobile: string,
     address: string,
@@ -22,6 +24,7 @@ export class Student {
     this.firstName = firstName;
     this.lastName = lastName;
     this.dateOfBirth = dateOfBirth;
+    this.dobString = dobString;
     this.email = email;
     this.mobile = mobile;
     this.address = address;

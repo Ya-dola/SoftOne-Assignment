@@ -65,9 +65,17 @@ public class Student
         {
             return DateTime.ParseExact(input.Trim('"'), "yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
-        catch (Exception e)
+        catch (Exception ex1)
         {
-            throw new NullReferenceException($"The date string '{input}' is missing", e);
+            try
+            {
+                const string format = "yyyy-MM-ddTHH:mm:ss";
+                return DateTime.ParseExact(input.Trim('"'), format, CultureInfo.InvariantCulture);
+            }
+            catch (Exception ex2)
+            {
+                throw new NullReferenceException($"The date string '{input}' is missing", ex2);
+            }
         }
     }
 }

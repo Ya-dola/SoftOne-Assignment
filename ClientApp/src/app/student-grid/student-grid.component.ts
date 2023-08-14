@@ -39,6 +39,10 @@ export class StudentGridComponent implements OnInit {
   editStudent(student: Student) {
     // Enable editing mode and populate the editingStudent object
     this.editingStudent = { ...student };
+
+    this.editingStudent.dobString = this.formatDobString(
+      this.editingStudent.dateOfBirth,
+    );
   }
 
   updateStudent() {
@@ -51,7 +55,7 @@ export class StudentGridComponent implements OnInit {
       formData.append('lastName', this.editingStudent.lastName);
       formData.append(
         'dobString',
-        JSON.stringify(this.editingStudent.dateOfBirth),
+        JSON.stringify(this.editingStudent.dobString),
       );
       formData.append('email', this.editingStudent.email);
       formData.append('mobile', this.editingStudent.mobile);
@@ -93,6 +97,15 @@ export class StudentGridComponent implements OnInit {
         console.error('Error deleting student:', error);
       },
     );
+  }
+
+  formatDobString(dateString: Date): string {
+    let date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+
+    return `${year}-${month}-${day}`;
   }
 
   onFileSelected(event: any) {

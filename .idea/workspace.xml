@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="044297dc-7c6a-4ab1-b2b3-4263846a44c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/5.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Misc/Assignment Breakdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/Misc/Assignment Breakdown.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Student.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Student.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +97,7 @@
       <workItem from="1691755259687" duration="6982000" />
       <workItem from="1691835824439" duration="1221000" />
       <workItem from="1691922702520" duration="18719000" />
-      <workItem from="1691993613875" duration="15202000" />
+      <workItem from="1691993613875" duration="20237000" />
     </task>
     <servers />
   </component>

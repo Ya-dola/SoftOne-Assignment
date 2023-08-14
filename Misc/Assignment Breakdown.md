@@ -20,31 +20,29 @@
 
 - Create Angular forms for updating student information. ✅
 - Implement the CRUD operations (Create, Read, Update, Delete) in both the Angular frontend and the ASP.NET Web API
-  backend. (Create ❓- Read ✅ - Update ✅ - Delete ❓)
+  backend. (Create ❓- Read ✅ - Update ✅ - Delete ✅)
 
 ### Day 4
 
 - Handle Uploading of Profile Image. ✅
 - Handle Displaying Profile Image from DB ✅
+- Fix Loading of Previous Date when Editing Student Details ✅
+- Make Uploading of Profile Image Not Required ❓
 - Create Angular forms for inserting new student information.
-- Fix Loading of Previous Date when Editing Student Details
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
-  correctly. (Create ❓- Read ✅ - Update ✅ - Delete ❓)
+  correctly. (Create ❓- Read ✅ - Update ✅ - Delete ✅)
 
 ### Day 5
 
 - Restructure the UI with flex grids and css. ❓
-- Expand the student list UI to include a details section.
+- Expand the student list UI to include a details section. ❓
 - Implement Angular functionality to populate the details section when a student is clicked. ❓
-- Implement pagination functionality for the student list in the Angular frontend.  
-- Add a search bar to search for localStudents by any field in the list. 
-- Implement sorting functionality for the student list. 
-- Test pagination, searching, and sorting to ensure they are working as expected. 
-
-
+- Implement pagination functionality for the student list in the Angular frontend.
+- Add a search bar to search for localStudents by any field in the list.
+- Implement sorting functionality for the student list.
+- Test pagination, searching, and sorting to ensure they are working as expected.
 
 # OLD
-
 
 ### Day 1: Initial Setup and Project Structure
 
@@ -83,7 +81,6 @@
 - Add a search bar to search for localStudents by any field in the list.
 - Implement sorting functionality for the student list.
 - Test pagination, searching, and sorting to ensure they are working as expected.
-
 
 # OLDEST
 
