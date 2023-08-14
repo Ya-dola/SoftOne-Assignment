@@ -145,6 +145,30 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
     .WithName("UpdateStudent")
     .WithOpenApi();
 
+app.MapDelete("/Student/{nic}", (HttpContext context, string nic) =>
+    {
+        using var conn = new SqlConnection(connectionString);
+        conn.Open();
+
+        var command = new SqlCommand(
+            "DELETE FROM students WHERE NIC=@nic",
+            conn);
+        command.Parameters.AddWithValue("@nic", nic);
+
+        int rowsAffected = command.ExecuteNonQuery();
+        if (rowsAffected > 0)
+        {
+            context.Response.StatusCode = 204; // No content
+        }
+        else
+        {
+            context.Response.StatusCode = 404; // Student not found
+        }
+    })
+    .WithName("DeleteStudent")
+    .WithOpenApi();
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");

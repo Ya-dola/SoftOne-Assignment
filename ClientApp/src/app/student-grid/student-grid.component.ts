@@ -60,8 +60,6 @@ export class StudentGridComponent implements OnInit {
       // Add the selected image to the FormData
       if (this.selectedImage) formData.append('profileImg', this.selectedImage);
 
-      console.log(this.selectedImage);
-
       // Make an HTTP POST request for JSON data
       this.http
         .post(`Student/${this.editingStudent.nic}`, formData)
@@ -76,6 +74,25 @@ export class StudentGridComponent implements OnInit {
   cancelEdit() {
     // Exit editing mode and revert changes
     this.editingStudent = null;
+  }
+
+  deleteStudent(nic: string) {
+    const confirmDelete = confirm(
+      'Are you sure you want to delete this student?',
+    );
+    if (!confirmDelete) {
+      return;
+    }
+
+    this.http.delete(`Student/${nic}`).subscribe(
+      () => {
+        console.log('Student deleted successfully');
+        this.fetchStudents(); // Refresh the student data after deletion
+      },
+      (error) => {
+        console.error('Error deleting student:', error);
+      },
+    );
   }
 
   onFileSelected(event: any) {
