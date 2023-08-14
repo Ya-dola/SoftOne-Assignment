@@ -84,6 +84,69 @@ app.MapGet("/Student/GetProfileImage/{nic}", async (HttpContext context, string 
     .WithName("GetProfileImage")
     .WithOpenApi();
 
+app.MapPost("/Student", async (HttpContext context) =>
+    {
+        var profileImg = context.Request.Form.Files["profileImg"];
+        var nic = context.Request.Form["nic"].ToString();
+
+        // Check if the 'nic' field is empty
+        if (string.IsNullOrWhiteSpace(nic))
+        {
+            context.Response.StatusCode = 400; // Bad Request
+            await context.Response.WriteAsync("NIC cannot be empty.");
+            return;
+        }
+
+        await using var conn = new SqlConnection(connectionString);
+        conn.Open();
+
+        var command = new SqlCommand(
+            "INSERT INTO students (NIC, FirstName, LastName, DateOfBirth, " +
+            "Email, Mobile, Address, ProfileImg) " +
+            "VALUES (@nic, @firstName, @lastName, @dateOfBirth, " +
+            "@email, @mobile, @address, @profileImg)",
+            conn);
+
+        // Set parameters from the form data
+        command.Parameters.AddWithValue("@nic", nic);
+        command.Parameters.AddWithValue("@firstName",
+            context.Request.Form["firstName"].ToString());
+        command.Parameters.AddWithValue("@lastName",
+            context.Request.Form["lastName"].ToString());
+        command.Parameters.AddWithValue("@dateOfBirth",
+            Student.StringToDate(context.Request.Form["dobString"].ToString()));
+        command.Parameters.AddWithValue("@email",
+            context.Request.Form["email"].ToString());
+        command.Parameters.AddWithValue("@mobile",
+            context.Request.Form["mobile"].ToString());
+        command.Parameters.AddWithValue("@address",
+            context.Request.Form["address"].ToString());
+
+        SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1);
+
+        // Set profile image parameter if provided, or explicitly to DBNull.Value if not
+        if (profileImg != null)
+        {
+            using MemoryStream memoryStream = new MemoryStream();
+            await profileImg.CopyToAsync(memoryStream);
+            byte[] imageData = memoryStream.ToArray();
+
+            profileImgParam.Value = imageData;
+        }
+        else profileImgParam.Value = DBNull.Value;
+
+        command.Parameters.Add(profileImgParam);
+
+        // Execute the query
+        await command.ExecuteNonQueryAsync();
+
+        // Return success response
+        context.Response.StatusCode = 201; // Created
+    })
+    .WithName("CreateStudent")
+    .WithOpenApi();
+
+
 app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSelected) =>
     {
         var profileImg = context.Request.Form.Files["profileImg"];

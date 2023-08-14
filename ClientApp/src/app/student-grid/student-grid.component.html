@@ -1,40 +1,61 @@
 <h1>Student Grid</h1>
+<!-- New Student Button -->
+<button (click)="createNewStudent()">New</button>
 
-<div *ngIf="editingStudent" class="edit-form">
-    <h2>Edit Student</h2>
-    <form (ngSubmit)="updateStudent()">
-        <div><strong>NIC:</strong> <input [(ngModel)]="editingStudent.nic" name="nic"></div>
-        <div><strong>First Name:</strong> <input [(ngModel)]="editingStudent.firstName" name="firstName"></div>
-        <div><strong>Last Name:</strong> <input [(ngModel)]="editingStudent.lastName" name="lastName"></div>
-        <div><strong>Date:</strong> <input [(ngModel)]="editingStudent.dobString" name="dateOfBirth" type="date"></div>
-        <div><strong>Email:</strong> <input [(ngModel)]="editingStudent.email" name="email" type="email"></div>
-        <div><strong>Mobile:</strong> <input [(ngModel)]="editingStudent.mobile" name="mobile"></div>
-        <div><strong>Address:</strong> <input [(ngModel)]="editingStudent.address" name="address"></div>
-        <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>
-        <button type="submit">Save Changes</button>
-        <button type="button" (click)="cancelEdit()">Cancel</button>
-    </form>
+<!-- Create Form (conditionally displayed) -->
+<div *ngIf="creatingStudent" class="edit-form">
+  <h2>Create Student</h2>
+  <form (ngSubmit)="createStudent()">
+    <div><strong>NIC:</strong> <input [(ngModel)]="newStudent.nic" name="nic"></div>
+    <div><strong>First Name:</strong> <input [(ngModel)]="newStudent.firstName" name="firstName"></div>
+    <div><strong>Last Name:</strong> <input [(ngModel)]="newStudent.lastName" name="lastName"></div>
+    <div><strong>Date:</strong> <input [(ngModel)]="newStudent.dobString" name="dateOfBirth" type="date"></div>
+    <div><strong>Email:</strong> <input [(ngModel)]="newStudent.email" name="email" type="email"></div>
+    <div><strong>Mobile:</strong> <input [(ngModel)]="newStudent.mobile" name="mobile"></div>
+    <div><strong>Address:</strong> <input [(ngModel)]="newStudent.address" name="address"></div>
+    <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>
+    <button type="submit">Create Student</button>
+    <button type="button" (click)="cancelCreate()">Cancel</button>
+  </form>
 </div>
 
+<!-- Edit Student Form -->
+<div *ngIf="editingStudent" class="edit-form">
+  <h2>Edit Student</h2>
+  <form (ngSubmit)="updateStudent()">
+    <div><strong>NIC:</strong> <input [(ngModel)]="editingStudent.nic" name="nic"></div>
+    <div><strong>First Name:</strong> <input [(ngModel)]="editingStudent.firstName" name="firstName"></div>
+    <div><strong>Last Name:</strong> <input [(ngModel)]="editingStudent.lastName" name="lastName"></div>
+    <div><strong>Date:</strong> <input [(ngModel)]="editingStudent.dobString" name="dateOfBirth" type="date"></div>
+    <div><strong>Email:</strong> <input [(ngModel)]="editingStudent.email" name="email" type="email"></div>
+    <div><strong>Mobile:</strong> <input [(ngModel)]="editingStudent.mobile" name="mobile"></div>
+    <div><strong>Address:</strong> <input [(ngModel)]="editingStudent.address" name="address"></div>
+    <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>
+    <button type="submit">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+<!-- Student Grid -->
 <div class="student-grid">
-    <div class="student-row" *ngFor="let student of students">
-        <div class="student-info">
-            <div><strong>NIC:</strong> {{ student.nic }}</div>
-            <div><strong>First Name:</strong> {{ student.firstName }}</div>
-            <div><strong>Last Name:</strong> {{ student.lastName }}</div>
-            <div><strong>Date:</strong> {{ student.dateOfBirth | date: 'dd/MM/yyyy' }}</div>
-            <div><strong>Email:</strong> {{ student.email }}</div>
-            <div><strong>Mobile:</strong> {{ student.mobile }}</div>
-            <div><strong>Address:</strong> {{ student.address }}</div>
-            <div *ngIf="student.profileImgUrl">
-                <strong>Profile Img:</strong>
-                <img [src]="student.profileImgUrl" alt="Profile Image">
-            </div>
-        </div>
-        <div class="edit-actions">
-            <button (click)="editStudent(student)">Edit</button>
-            <button (click)="deleteStudent(student.nic)">Delete</button>
-        </div>
+  <div class="student-row" *ngFor="let student of students">
+    <div class="student-info">
+      <div><strong>NIC:</strong> {{ student.nic }}</div>
+      <div><strong>First Name:</strong> {{ student.firstName }}</div>
+      <div><strong>Last Name:</strong> {{ student.lastName }}</div>
+      <div><strong>Date:</strong> {{ student.dateOfBirth | date: 'dd/MM/yyyy' }}</div>
+      <div><strong>Email:</strong> {{ student.email }}</div>
+      <div><strong>Mobile:</strong> {{ student.mobile }}</div>
+      <div><strong>Address:</strong> {{ student.address }}</div>
+      <div *ngIf="student.profileImgUrl">
+        <strong>Profile Img:</strong>
+        <img [src]="student.profileImgUrl" alt="Profile Image">
+      </div>
     </div>
+    <div class="edit-actions">
+      <button (click)="editStudent(student)">Edit</button>
+      <button (click)="deleteStudent(student.nic)">Delete</button>
+    </div>
+  </div>
 </div>
 

@@ -20,7 +20,7 @@
 
 - Create Angular forms for updating student information. ✅
 - Implement the CRUD operations (Create, Read, Update, Delete) in both the Angular frontend and the ASP.NET Web API
-  backend. (Create ❓- Read ✅ - Update ✅ - Delete ✅)
+  backend. (Create ✅ - Read ✅ - Update ✅ - Delete ✅)
 
 ### Day 4
 
@@ -28,9 +28,9 @@
 - Handle Displaying Profile Image from DB ✅
 - Fix Loading of Previous Date when Editing Student Details ✅
 - Make Uploading of Profile Image Not Required ✅
-- Create Angular forms for inserting new student information.
+- Create Angular forms for inserting new student information. ✅
 - Test CRUD operations by sending requests from the Angular frontend and ensuring data is being stored and retrieved
-  correctly. (Create ❓- Read ✅ - Update ✅ - Delete ✅)
+  correctly. (Create ✅ - Read ✅ - Update ✅ - Delete ✅)
 
 ### Day 5
 
@@ -41,6 +41,7 @@
 - Add a search bar to search for localStudents by any field in the list.
 - Implement sorting functionality for the student list.
 - Test pagination, searching, and sorting to ensure they are working as expected.
+- Make Sure Everything Looks Pretty.
 
 # OLD
 
