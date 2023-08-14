@@ -1,4 +1,6 @@
-﻿namespace SoftOne_Assignment;
+﻿using System.Globalization;
+
+namespace SoftOne_Assignment;
 
 public class Student
 {
@@ -53,12 +55,23 @@ public class Student
         const string format = "dd/MM/yyyy h:mm:ss tt";
         try
         {
-            DateTime parsedDateTime = DateTime.ParseExact(input, format, null);
-            return parsedDateTime;
+            return DateTime.ParseExact(input, format, null);
         }
         catch (Exception e)
         {
             throw new ArgumentException($"The date string '{input}' is not in the correct format.", e);
+        }
+    }
+
+    public static DateTime StringToDate(string? input)
+    {
+        try
+        {
+            return DateTime.ParseExact(input.Trim('"'), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        }
+        catch (Exception e)
+        {
+            throw new NullReferenceException($"The date string '{input}' is missing", e);
         }
     }
 }

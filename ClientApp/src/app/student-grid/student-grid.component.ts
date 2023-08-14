@@ -37,14 +37,28 @@ export class StudentGridComponent implements OnInit {
 
   updateStudent() {
     if (this.editingStudent) {
-      this.editingStudent.profileImg =
-        this.selectedImage ?? this.editingStudent.profileImg;
+      const formData = new FormData();
 
-      console.log(this.editingStudent.profileImg);
+      // Add student data fields to the FormData
+      formData.append('nic', this.editingStudent.nic);
+      formData.append('firstName', this.editingStudent.firstName);
+      formData.append('lastName', this.editingStudent.lastName);
+      formData.append(
+        'dobString',
+        JSON.stringify(this.editingStudent.dateOfBirth),
+      );
+      formData.append('email', this.editingStudent.email);
+      formData.append('mobile', this.editingStudent.mobile);
+      formData.append('address', this.editingStudent.address);
 
-      // Make an HTTP POST request to update student data
+      // Add the selected image to the FormData
+      if (this.selectedImage) formData.append('profileImg', this.selectedImage);
+
+      console.log(this.selectedImage);
+
+      // Make an HTTP POST request for JSON data
       this.http
-        .post(`Student/${this.editingStudent.nic}`, this.editingStudent)
+        .post(`Student/${this.editingStudent.nic}`, formData)
         .subscribe(() => {
           console.log('Student updated successfully');
           this.editingStudent = null; // Exit editing mode

@@ -30,7 +30,7 @@
         <div><strong>Email:</strong> <input [(ngModel)]="editingStudent.email" name="email" type="email"></div>
         <div><strong>Mobile:</strong> <input [(ngModel)]="editingStudent.mobile" name="mobile"></div>
         <div><strong>Address:</strong> <input [(ngModel)]="editingStudent.address" name="address"></div>
-        <div><strong>Profile Img:</strong> <input [(ngModel)]="editingStudent.profileImg" name="profileImg"></div>
+        <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>
         <button type="submit">Save Changes</button>
         <button type="button" (click)="cancelEdit()">Cancel</button>
     </form>

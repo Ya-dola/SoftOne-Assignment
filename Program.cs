@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.Data.SqlClient;
 using SoftOne_Assignment;
 
@@ -49,23 +50,48 @@ app.MapGet("/Student", () =>
     .WithName("GetStudents")
     .WithOpenApi();
 
-app.MapPost("/Student/{nicSelected}", (Student student, string nicSelected) =>
+app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSelected) =>
     {
+        var profileImg = context.Request.Form.Files["profileImg"];
+
         using var conn = new SqlConnection(connectionString);
         conn.Open();
 
         var command = new SqlCommand(
-            "UPDATE students SET firstName=@firstName, lastName=@lastName, dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, address=@address, profileImg=@profileImg WHERE nic=@nic",
+            "UPDATE students SET firstName=@firstName, lastName=@lastName, " +
+            "dateOfBirth=@dateOfBirth, email=@email, mobile=@mobile, address=@address " +
+            "WHERE nic=@nic",
             conn);
 
         command.Parameters.AddWithValue("@nic", nicSelected);
-        command.Parameters.AddWithValue("@firstName", student.FirstName);
-        command.Parameters.AddWithValue("@lastName", student.LastName);
-        command.Parameters.AddWithValue("@dateOfBirth", student.DateOfBirth);
-        command.Parameters.AddWithValue("@email", student.Email);
-        command.Parameters.AddWithValue("@mobile", student.Mobile);
-        command.Parameters.AddWithValue("@address", student.Address);
-        command.Parameters.AddWithValue("@profileImg", student.ProfileImg);
+        command.Parameters.AddWithValue("@firstName",
+            context.Request.Form["firstName"].ToString());
+        command.Parameters.AddWithValue("@lastName",
+            context.Request.Form["lastName"].ToString());
+        command.Parameters.AddWithValue("@dateOfBirth",
+            Student.StringToDate(context.Request.Form["dobString"].ToString()));
+        command.Parameters.AddWithValue("@email",
+            context.Request.Form["email"].ToString());
+        command.Parameters.AddWithValue("@mobile",
+            context.Request.Form["mobile"].ToString());
+        command.Parameters.AddWithValue("@address",
+            context.Request.Form["address"].ToString());
+
+        if (profileImg != null)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                await profileImg.CopyToAsync(memoryStream);
+                byte[] imageData = memoryStream.ToArray();
+
+                // Here, you can update the database record with imageData
+                // For example:
+                command.Parameters.AddWithValue("@profileImg", imageData);
+
+                Console.WriteLine("Profile Img: " + profileImg);
+                Console.WriteLine("Img Data: " + imageData);
+            }
+        }
 
         using SqlDataReader reader = command.ExecuteReader();
     })
