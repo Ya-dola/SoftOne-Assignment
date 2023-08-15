@@ -57,11 +57,26 @@
     <div class="student-row">
         <button>Profile</button>
         <!--Sorting Buttons-->
-        <button (click)="sortStudents('nic')">NIC</button>
-        <button (click)="sortStudents('firstName')">First Name</button>
-        <button (click)="sortStudents('lastName')">Last Name</button>
-        <button (click)="sortStudents('email')">Email</button>
-        <button (click)="sortStudents('mobile')">Mobile</button>
+        <button (click)="sortStudents('nic')">
+            NIC
+            <span [ngClass]="getSortArrowClass('nic')"></span>
+        </button>
+        <button (click)="sortStudents('firstName')">
+            First Name
+            <span [ngClass]="getSortArrowClass('firstName')"></span>
+        </button>
+        <button (click)="sortStudents('lastName')">
+            Last Name
+            <span [ngClass]="getSortArrowClass('lastName')"></span>
+        </button>
+        <button (click)="sortStudents('email')">
+            Email
+            <span [ngClass]="getSortArrowClass('email')"></span>
+        </button>
+        <button (click)="sortStudents('mobile')">
+            Mobile
+            <span [ngClass]="getSortArrowClass('mobile')"></span>
+        </button>
         <!--        <button (click)="sortStudents('dateOfBirth')">Sort by Date of Birth</button>-->
         <!-- New Student Button -->
         <button (click)="createNewStudent()">Add Student</button>

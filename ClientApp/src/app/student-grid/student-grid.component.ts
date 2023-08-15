@@ -285,4 +285,11 @@ export class StudentGridComponent implements OnInit {
   getTotalPages(): number {
     return Math.ceil(this.totalRecords / this.pageSize);
   }
+
+  getSortArrowClass(field: string): string {
+    if (this.sortField === field) {
+      return this.sortDirection === 'asc' ? 'up-arrow' : 'down-arrow';
+    }
+    return '';
+  }
 }

@@ -75,6 +75,14 @@ button {
     justify-content: space-around;
 }
 
+.student-row > button {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+}
+
 .student-details, .student-editing, .student-creating {
     display: flex;
     flex-flow: row nowrap;
@@ -163,6 +171,13 @@ button {
     cursor: default;
 }
 
+.up-arrow::after {
+    content: ' ▲';
+}
+
+.down-arrow::before {
+    content: ' ▼';
+}
 
 @media (max-width: 1120px) {
     .student-creating {
@@ -174,5 +189,14 @@ button {
 @media (max-width: 1024px) {
     .student-details, .student-editing {
         flex-flow: column nowrap;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .student-row > button {
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 0.25rem;
     }
 }
