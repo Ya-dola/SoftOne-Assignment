@@ -84,7 +84,7 @@ app.MapGet("/Student/GetProfileImage/{nic}", async (HttpContext context, string 
     .WithName("GetProfileImage")
     .WithOpenApi();
 
-app.MapPost("/Student", async (HttpContext context) =>
+app.MapPost("/Student", async context =>
     {
         var profileImg = context.Request.Form.Files["profileImg"];
         var nic = context.Request.Form["nic"].ToString();
@@ -186,10 +186,8 @@ app.MapPost("/Student/{nicSelected}", async (HttpContext context, string nicSele
             byte[] imageData = memoryStream.ToArray();
 
             // Update the database record with imageData
-            SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1)
-            {
-                Value = imageData
-            };
+            SqlParameter profileImgParam = new SqlParameter("@profileImg", SqlDbType.VarBinary, -1);
+            profileImgParam.Value = imageData;
             command.Parameters.Add(profileImgParam);
         }
 

@@ -12,8 +12,11 @@ export class StudentGridComponent implements OnInit {
   students: Student[] = [];
   editingStudent: Student | null = null;
   selectedImage: File | null = null;
-
   creatingStudent: boolean = false;
+  // Add properties to track sorting
+  sortedStudents: Student[] = [];
+  sortField: string = 'nic'; // Default sorting field
+  sortDirection: 'asc' | 'desc' = 'asc'; // Default sorting direction
 
   constructor(private http: HttpClient) {}
 
@@ -30,6 +33,9 @@ export class StudentGridComponent implements OnInit {
         for (const student of this.students) {
           student.profileImgUrl = `Student/GetProfileImage/${student.nic}`;
         }
+
+        // Initialize sortedStudents with students
+        this.sortedStudents = [...this.students];
 
         console.log('Students Fetched', response);
       },
@@ -162,5 +168,23 @@ export class StudentGridComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedImage = event.target.files[0];
+  }
+
+  // Add sorting logic
+  sortStudents(field: string) {
+    // Toggle sort direction if the same field is clicked again
+    if (this.sortField === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortField = field;
+      this.sortDirection = 'asc'; // Default to ascending order for the selected field
+    }
+
+    // Sort students based on the selected field and direction
+    this.sortedStudents = [...this.students].sort((a, b) =>
+      this.sortDirection === 'asc'
+        ? a[field].localeCompare(b[field])
+        : b[field].localeCompare(a[field]),
+    );
   }
 }

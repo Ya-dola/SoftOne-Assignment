@@ -42,6 +42,9 @@
 - Implement sorting functionality for the student list.
 - Test pagination, searching, and sorting to ensure they are working as expected.
 - Make Sure Everything Looks Pretty.
+- Remove Unwanted Information from Nav Bar
+- Remove All Unused Code
+- Write README.md for the Project
 
 # OLD
 

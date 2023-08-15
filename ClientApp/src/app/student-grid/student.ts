@@ -30,4 +30,8 @@ export class Student {
     this.address = address;
     this.profileImgUrl = profileImgUrl;
   }
+
+  // Add an index signature
+  // Allow any property to be accessed using string keys
+  [key: string]: any;
 }
