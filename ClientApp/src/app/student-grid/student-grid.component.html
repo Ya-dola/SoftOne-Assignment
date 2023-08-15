@@ -79,7 +79,7 @@
         </button>
         <!--        <button (click)="sortStudents('dateOfBirth')">Sort by Date of Birth</button>-->
         <!-- New Student Button -->
-        <button (click)="createNewStudent()">Add Student</button>
+        <button class="addStuBtn" (click)="createNewStudent()">Add Student</button>
     </div>
     <div class="student-view" *ngFor="let student of sortedStudents">
         <div class="student-row" (click)="toggleDetails(student)">

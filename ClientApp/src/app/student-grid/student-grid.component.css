@@ -83,6 +83,10 @@ button {
     align-items: center;
 }
 
+.student-row > button.addStuBtn {
+    background: #eee;
+}
+
 .student-details, .student-editing, .student-creating {
     display: flex;
     flex-flow: row nowrap;

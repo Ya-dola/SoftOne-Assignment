@@ -13,9 +13,11 @@ export class StudentGridComponent implements OnInit {
   editingStudents: { [key: string]: Student } = {}; // Object to hold duplicate students for editing
   selectedImage: File | null = null;
   creatingStudent: boolean = false;
+  // Sorting
   sortedStudents: Student[] = [];
-  sortField: string = 'nic'; // Default sorting field
-  sortDirection: 'asc' | 'desc' = 'asc'; // Default sorting direction
+  sortField: string = 'nic';
+  sortDirection: 'asc' | 'desc' = 'asc';
+  // Searching
   searchQuery: string = '';
   filteredStudents: Student[] = [];
   // Pagination
@@ -43,9 +45,10 @@ export class StudentGridComponent implements OnInit {
         // Apply search filter initially onto sortedStudents
         this.applySearchFilter();
 
-        // After fetching students, update the totalRecords property
+        // Update the totalRecords
         this.totalRecords = this.filteredStudents.length;
-        // Call applyPagination after fetching students to display the first page
+
+        // Display First Page
         this.applyPagination();
 
         console.log('Students Fetched', response);
@@ -57,16 +60,13 @@ export class StudentGridComponent implements OnInit {
   }
 
   createNewStudent() {
-    // Show the create form
     this.creatingStudent = true;
-    // Clear any previous data in the create form fields
     this.resetFormNewStudent();
   }
 
   createStudent() {
     const formData = new FormData();
 
-    // Add new student data fields to the FormData
     formData.append('nic', this.newStudent.nic);
     formData.append('firstName', this.newStudent.firstName);
     formData.append('lastName', this.newStudent.lastName);
@@ -94,20 +94,17 @@ export class StudentGridComponent implements OnInit {
   }
 
   cancelCreate() {
-    // Hide the create form when canceled
     this.creatingStudent = false;
-    // Clear any previous data in the create form fields
     this.resetFormNewStudent();
   }
 
   resetFormNewStudent() {
-    // Clear the fields of the create form
     this.newStudent = new Student('', '', '', new Date(), '', '', '', '', ''); // Reset form fields
   }
 
   editStudent(student: Student) {
     student.showDetails = false;
-    student.editing = true; // Set editing mode for the clicked student
+    student.editing = true;
     student.dobString = this.formatDobString(student.dateOfBirth);
     this.createEditingStudent(student); // Create a duplicate of the student for editing
   }
@@ -117,8 +114,8 @@ export class StudentGridComponent implements OnInit {
   }
 
   cancelEdit(student: Student) {
-    student.editing = false; // Exit editing mode for the clicked student
-    delete this.editingStudents[student.nic]; // Remove the duplicate student
+    student.editing = false;
+    delete this.editingStudents[student.nic];
   }
 
   updateStudent(student: Student) {
@@ -143,9 +140,9 @@ export class StudentGridComponent implements OnInit {
           console.log('Student updated successfully');
           editingStudent.editing = false;
           this.selectedImage = null;
-          delete this.editingStudents[student.nic]; // Remove the duplicate Editing student
+          delete this.editingStudents[student.nic];
           // this.resetComponentState(); // Reset the component's state
-          window.location.reload(); // Reload Webpage to show changed Images as well
+          window.location.reload(); // Reload Webpage to show Updated Images
         },
         (error) => {
           console.error('Error updating student:', error);
@@ -163,7 +160,7 @@ export class StudentGridComponent implements OnInit {
     this.searchQuery = '';
     this.filteredStudents = [];
     this.sortedStudents = [];
-    this.fetchStudents(); // Call the method to fetch student data again
+    this.fetchStudents();
   }
 
   deleteStudent(student: Student) {
@@ -201,7 +198,6 @@ export class StudentGridComponent implements OnInit {
     this.selectedImage = event.target.files[0];
   }
 
-  // Add sorting logic
   sortStudents(field: string) {
     // Toggle sort direction if the same field is clicked again
     if (this.sortField === field) {
@@ -241,16 +237,13 @@ export class StudentGridComponent implements OnInit {
           student.nic.toLowerCase().includes(lowerCaseSearchQuery),
       );
     } else {
-      this.filteredStudents = [...this.students]; // Reset the filter
+      this.filteredStudents = [...this.students];
     }
-    this.sortStudents(this.sortField); // Apply sorting
+    this.sortStudents(this.sortField);
   }
 
-  // Method to handle search input changes
   searchStudents() {
     this.applySearchFilter();
-
-    // After fetching students, update the totalRecords property
     this.totalRecords = this.filteredStudents.length;
   }
 
@@ -259,13 +252,11 @@ export class StudentGridComponent implements OnInit {
   }
 
   applyPagination() {
-    // this.filteredStudents = [...this.sortedStudents];
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.sortedStudents = this.filteredStudents.slice(startIndex, endIndex);
   }
 
-  // Method to handle next page button click
   nextPage() {
     if (this.currentPage < this.getTotalPages()) {
       this.currentPage++;
@@ -273,7 +264,6 @@ export class StudentGridComponent implements OnInit {
     }
   }
 
-  // Method to handle previous page button click
   previousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -281,7 +271,6 @@ export class StudentGridComponent implements OnInit {
     }
   }
 
-  // Calculate total pages based on totalRecords and pageSize
   getTotalPages(): number {
     return Math.ceil(this.totalRecords / this.pageSize);
   }

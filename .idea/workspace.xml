@@ -11,6 +11,8 @@
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Misc/Assignment Breakdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/Misc/Assignment Breakdown.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Misc/SQL Scripts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Misc/SQL Scripts.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
