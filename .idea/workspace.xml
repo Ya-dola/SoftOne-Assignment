@@ -8,7 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/.angular/cache/15.2.7/angular-webpack/e2a0b19bc5927e02513bf654e34e01b22f410bf6/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

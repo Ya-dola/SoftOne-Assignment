@@ -1,6 +1,7 @@
-<h1>Student Grid</h1>
+<h1>SoftOne Student Registration</h1>
 <!-- Search input -->
-<input type="text" [(ngModel)]="searchQuery" (input)="searchStudents()" placeholder="Search...">
+<input type="text" class="search-bar" [(ngModel)]="searchQuery"
+       (input)="searchStudents()" placeholder="Search...">
 
 <div *ngIf="creatingStudent" class="modal-backdrop">
     <div class="modal-container">
@@ -54,7 +55,7 @@
 
 <div class="grid">
     <div class="student-row">
-        <div>Profile</div>
+        <button>Profile</button>
         <!--Sorting Buttons-->
         <button (click)="sortStudents('nic')">NIC</button>
         <button (click)="sortStudents('firstName')">First Name</button>
