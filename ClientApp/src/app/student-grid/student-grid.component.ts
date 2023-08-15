@@ -181,10 +181,16 @@ export class StudentGridComponent implements OnInit {
     }
 
     // Sort students based on the selected field and direction
-    this.sortedStudents = [...this.students].sort((a, b) =>
-      this.sortDirection === 'asc'
-        ? a[field].localeCompare(b[field])
-        : b[field].localeCompare(a[field]),
-    );
+    this.sortedStudents = [...this.students].sort((a, b) => {
+      if (field === 'dateOfBirth') {
+        const dateA = new Date(a[field]).getTime();
+        const dateB = new Date(b[field]).getTime();
+        return this.sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
+      } else {
+        return this.sortDirection === 'asc'
+          ? a[field].localeCompare(b[field])
+          : b[field].localeCompare(a[field]);
+      }
+    });
   }
 }
