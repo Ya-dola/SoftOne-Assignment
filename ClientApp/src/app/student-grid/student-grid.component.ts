@@ -36,9 +36,6 @@ export class StudentGridComponent implements OnInit {
           student.profileImgUrl = `Student/GetProfileImage/${student.nic}`;
         }
 
-        // // Initialize sortedStudents with students
-        // this.sortedStudents = [...this.students];
-
         // Apply search filter initially onto sortedStudents
         this.applySearchFilter();
 
@@ -138,7 +135,8 @@ export class StudentGridComponent implements OnInit {
           editingStudent.editing = false;
           this.selectedImage = null;
           delete this.editingStudents[student.nic]; // Remove the duplicate Editing student
-          this.resetComponentState();
+          // this.resetComponentState(); // Reset the component's state
+          window.location.reload(); // Reload Webpage to show changed Images as well
         },
         (error) => {
           console.error('Error updating student:', error);
@@ -173,7 +171,7 @@ export class StudentGridComponent implements OnInit {
     this.http.delete(`Student/${student.nic}`).subscribe(
       () => {
         console.log('Student deleted successfully');
-        this.fetchStudents(); // Refresh the student data after deletion
+        this.resetComponentState(); // Reset the component's state
       },
       (error) => {
         console.error('Error deleting student:', error);
