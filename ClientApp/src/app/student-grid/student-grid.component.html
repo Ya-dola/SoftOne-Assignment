@@ -164,4 +164,10 @@
             </form>
         </div>
     </div>
+
+    <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">&lt; Previous</button>
+        <div>Page {{ currentPage }} of {{ getTotalPages() }}</div>
+        <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Next &gt;</button>
+    </div>
 </div>

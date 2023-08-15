@@ -18,6 +18,10 @@ export class StudentGridComponent implements OnInit {
   sortDirection: 'asc' | 'desc' = 'asc'; // Default sorting direction
   searchQuery: string = '';
   filteredStudents: Student[] = [];
+  // Pagination
+  currentPage: number = 1;
+  pageSize: number = 4;
+  totalRecords: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -38,6 +42,11 @@ export class StudentGridComponent implements OnInit {
 
         // Apply search filter initially onto sortedStudents
         this.applySearchFilter();
+
+        // After fetching students, update the totalRecords property
+        this.totalRecords = this.filteredStudents.length;
+        // Call applyPagination after fetching students to display the first page
+        this.applyPagination();
 
         console.log('Students Fetched', response);
       },
@@ -214,6 +223,10 @@ export class StudentGridComponent implements OnInit {
         : b[field].localeCompare(a[field]);
       // }
     });
+
+    this.filteredStudents = [...this.sortedStudents];
+
+    this.applyPagination(); // Apply pagination after sorting
   }
 
   applySearchFilter() {
@@ -240,5 +253,33 @@ export class StudentGridComponent implements OnInit {
 
   toggleDetails(student: Student) {
     student.showDetails = !student.showDetails;
+  }
+
+  applyPagination() {
+    // this.filteredStudents = [...this.sortedStudents];
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.sortedStudents = this.filteredStudents.slice(startIndex, endIndex);
+  }
+
+  // Method to handle next page button click
+  nextPage() {
+    if (this.currentPage < this.getTotalPages()) {
+      this.currentPage++;
+      this.applyPagination();
+    }
+  }
+
+  // Method to handle previous page button click
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.applyPagination();
+    }
+  }
+
+  // Calculate total pages based on totalRecords and pageSize
+  getTotalPages(): number {
+    return Math.ceil(this.totalRecords / this.pageSize);
   }
 }

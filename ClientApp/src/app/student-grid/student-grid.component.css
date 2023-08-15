@@ -143,6 +143,27 @@ button {
     padding-bottom: 1rem;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.pagination button[disabled] {
+    background-color: #ccc;
+    cursor: default;
+}
+
+
 @media (max-width: 1120px) {
     .student-creating {
         flex-flow: column nowrap;

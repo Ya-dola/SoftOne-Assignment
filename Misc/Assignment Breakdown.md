@@ -42,13 +42,14 @@
     - Summary has: NIC - FirstName - LastName - Email - Mobile ✅
     - Details has All the fields ✅
 - Implement Angular functionality to populate the details section when a student is clicked. ✅
-- Implement Pagination functionality for the student list in the Angular frontend.
-- Add Indication to Related Sorting Button when Sorting is Applied
-- Test pagination, searching, and sorting to ensure they are working as expected.
+- Implement Pagination functionality for the student list in the Angular frontend. ✅
+- Add Indication to Related Sorting Button when Sorting is Applied.
+- Test pagination, searching, and sorting to ensure they are working as expected. ❓
 - Make Sure Everything Looks Pretty.
 - Remove Unwanted Information from Nav Bar.
 - Remove All Unused Code and Clean up AppModule.
 - Write README.md for the Project.
+- Record Video Going Through Project. 
 
 # OLD
 
