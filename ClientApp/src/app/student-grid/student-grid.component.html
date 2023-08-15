@@ -2,23 +2,6 @@
 <!-- Search input -->
 <input type="text" [(ngModel)]="searchQuery" (input)="searchStudents()" placeholder="Search...">
 
-<!-- Create Form (conditionally displayed) -->
-<!--<div *ngIf="creatingStudent" class="edit-form">-->
-<!--    <h2>Create Student</h2>-->
-<!--    <form (ngSubmit)="createStudent()">-->
-<!--        <div><strong>NIC:</strong> <input [(ngModel)]="newStudent.nic" name="nic"></div>-->
-<!--        <div><strong>First Name:</strong> <input [(ngModel)]="newStudent.firstName" name="firstName"></div>-->
-<!--        <div><strong>Last Name:</strong> <input [(ngModel)]="newStudent.lastName" name="lastName"></div>-->
-<!--        <div><strong>Date:</strong> <input [(ngModel)]="newStudent.dobString" name="dateOfBirth" type="date"></div>-->
-<!--        <div><strong>Email:</strong> <input [(ngModel)]="newStudent.email" name="email" type="email"></div>-->
-<!--        <div><strong>Mobile:</strong> <input [(ngModel)]="newStudent.mobile" name="mobile"></div>-->
-<!--        <div><strong>Address:</strong> <input [(ngModel)]="newStudent.address" name="address"></div>-->
-<!--        <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>-->
-<!--        <button type="submit">Create Student</button>-->
-<!--        <button type="button" (click)="cancelCreate()">Cancel</button>-->
-<!--    </form>-->
-<!--</div>-->
-
 <div *ngIf="creatingStudent" class="modal-backdrop">
     <div class="modal-container">
         <h2 class="title">Add New Student</h2>
@@ -68,7 +51,6 @@
         </form>
     </div>
 </div>
-
 
 <div class="grid">
     <div class="student-row">
@@ -135,38 +117,38 @@
             </div>
         </div>
         <div *ngIf="student.editing">
-            <form class="student-editing" (ngSubmit)="updateStudent(student)">
+            <form class="student-editing" (ngSubmit)="updateStudent(editingStudents[student.nic])">
                 <div class="section">
                     <div class="info">
                         <div>NIC</div>
-                        <input [(ngModel)]="student.nic" name="nic" disabled>
+                        <input [(ngModel)]="editingStudents[student.nic].nic" name="nic" disabled>
                     </div>
                     <div class="info">
                         <div>First Name</div>
-                        <input [(ngModel)]="student.firstName" name="firstName">
+                        <input [(ngModel)]="editingStudents[student.nic].firstName" name="firstName">
                     </div>
                     <div class="info">
                         <div>Last Name</div>
-                        <input [(ngModel)]="student.lastName" name="lastName">
+                        <input [(ngModel)]="editingStudents[student.nic].lastName" name="lastName">
                     </div>
                     <div class="info">
                         <div>Date of Birth</div>
-                        <input [(ngModel)]="student.dobString" name="dateOfBirth" type="date">
+                        <input [(ngModel)]="editingStudents[student.nic].dobString" name="dateOfBirth" type="date">
                     </div>
                 </div>
                 <div class="section-border"></div>
                 <div class="section">
                     <div class="info">
                         <div>Email</div>
-                        <input [(ngModel)]="student.email" name="email" type="email">
+                        <input [(ngModel)]="editingStudents[student.nic].email" name="email" type="email">
                     </div>
                     <div class="info">
                         <div>Mobile</div>
-                        <input [(ngModel)]="student.mobile" name="mobile">
+                        <input [(ngModel)]="editingStudents[student.nic].mobile" name="mobile">
                     </div>
                     <div class="info">
                         <div>Address</div>
-                        <input [(ngModel)]="student.address" name="address">
+                        <input [(ngModel)]="editingStudents[student.nic].address" name="address">
                     </div>
                     <div class="info">
                         <div>Profile Img</div>

@@ -10,16 +10,13 @@ import { HttpClient } from '@angular/common/http';
 export class StudentGridComponent implements OnInit {
   newStudent: Student = new Student('', '', '', new Date(), '', '', '', '', '');
   students: Student[] = [];
-  editingStudent: Student | null = null;
+  editingStudents: { [key: string]: Student } = {}; // Object to hold duplicate students for editing
   selectedImage: File | null = null;
   creatingStudent: boolean = false;
-  // Add properties to track sorting
   sortedStudents: Student[] = [];
   sortField: string = 'nic'; // Default sorting field
   sortDirection: 'asc' | 'desc' = 'asc'; // Default sorting direction
-  // Add a property for the search query
   searchQuery: string = '';
-  // Add a property to store filtered students
   filteredStudents: Student[] = [];
 
   constructor(private http: HttpClient) {}
@@ -106,37 +103,42 @@ export class StudentGridComponent implements OnInit {
     student.showDetails = false;
     student.editing = true; // Set editing mode for the clicked student
     student.dobString = this.formatDobString(student.dateOfBirth);
+    this.createEditingStudent(student); // Create a duplicate of the student for editing
+  }
+
+  createEditingStudent(student: Student) {
+    this.editingStudents[student.nic] = { ...student };
   }
 
   cancelEdit(student: Student) {
     student.editing = false; // Exit editing mode for the clicked student
+    delete this.editingStudents[student.nic]; // Remove the duplicate student
   }
 
   updateStudent(student: Student) {
-    if (student) {
+    const editingStudent = this.editingStudents[student.nic]; // Use the duplicate student
+
+    if (editingStudent) {
       const formData = new FormData();
+      formData.append('nic', editingStudent.nic);
+      formData.append('firstName', editingStudent.firstName);
+      formData.append('lastName', editingStudent.lastName);
+      formData.append('dobString', JSON.stringify(editingStudent.dobString));
+      formData.append('email', editingStudent.email);
+      formData.append('mobile', editingStudent.mobile);
+      formData.append('address', editingStudent.address);
 
-      // Add student data fields to the FormData
-      formData.append('nic', student.nic);
-      formData.append('firstName', student.firstName);
-      formData.append('lastName', student.lastName);
-      formData.append('dobString', JSON.stringify(student.dobString));
-      formData.append('email', student.email);
-      formData.append('mobile', student.mobile);
-      formData.append('address', student.address);
-
-      // Add the selected image to the FormData
       if (this.selectedImage) {
         formData.append('profileImg', this.selectedImage);
       }
 
-      // Make an HTTP POST request to update the student
-      this.http.post(`Student/${student.nic}`, formData).subscribe(
+      this.http.post(`Student/${editingStudent.nic}`, formData).subscribe(
         () => {
           console.log('Student updated successfully');
-          student.editing = false; // Exit editing mode for this student
-          this.selectedImage = null; // Clear selected image
-          this.resetComponentState(); // Reset the component's state
+          editingStudent.editing = false;
+          this.selectedImage = null;
+          delete this.editingStudents[student.nic]; // Remove the duplicate Editing student
+          this.resetComponentState();
         },
         (error) => {
           console.error('Error updating student:', error);
@@ -148,7 +150,6 @@ export class StudentGridComponent implements OnInit {
   resetComponentState() {
     this.newStudent = new Student('', '', '', new Date(), '', '', '', '', '');
     this.students = [];
-    this.editingStudent = null;
     this.selectedImage = null;
     this.creatingStudent = false;
     this.sortDirection = 'desc';
