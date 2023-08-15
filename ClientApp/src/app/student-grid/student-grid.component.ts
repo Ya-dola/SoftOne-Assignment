@@ -82,7 +82,7 @@ export class StudentGridComponent implements OnInit {
       () => {
         console.log('Student created successfully');
         this.cancelCreate();
-        this.fetchStudents(); // Refresh the student data
+        this.resetComponentState(); // Reset the component's state
       },
       (error) => {
         console.error('Error creating student:', error);
@@ -157,50 +157,6 @@ export class StudentGridComponent implements OnInit {
     this.sortedStudents = [];
     this.fetchStudents(); // Call the method to fetch student data again
   }
-
-  // editStudent(student: Student) {
-  //   // Enable editing mode and populate the editingStudent object
-  //   this.editingStudent = { ...student };
-  //
-  //   this.editingStudent.dobString = this.formatDobString(
-  //     this.editingStudent.dateOfBirth,
-  //   );
-  // }
-  //
-  // cancelEdit() {
-  //   // Exit editing mode and revert changes
-  //   this.editingStudent = null;
-  // }
-
-  // updateStudent() {
-  //   if (this.editingStudent) {
-  //     const formData = new FormData();
-  //
-  //     // Add student data fields to the FormData
-  //     formData.append('nic', this.editingStudent.nic);
-  //     formData.append('firstName', this.editingStudent.firstName);
-  //     formData.append('lastName', this.editingStudent.lastName);
-  //     formData.append(
-  //       'dobString',
-  //       JSON.stringify(this.editingStudent.dobString),
-  //     );
-  //     formData.append('email', this.editingStudent.email);
-  //     formData.append('mobile', this.editingStudent.mobile);
-  //     formData.append('address', this.editingStudent.address);
-  //
-  //     // Add the selected image to the FormData
-  //     if (this.selectedImage) formData.append('profileImg', this.selectedImage);
-  //
-  //     // Make an HTTP POST request for JSON data
-  //     this.http
-  //       .post(`Student/${this.editingStudent.nic}`, formData)
-  //       .subscribe(() => {
-  //         console.log('Student updated successfully');
-  //         this.editingStudent = null; // Exit editing mode
-  //         this.fetchStudents(); // Refresh the student data
-  //       });
-  //   }
-  // }
 
   deleteStudent(student: Student) {
     student.showDetails = false;
