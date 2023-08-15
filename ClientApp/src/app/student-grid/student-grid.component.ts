@@ -249,6 +249,9 @@ export class StudentGridComponent implements OnInit {
   // Method to handle search input changes
   searchStudents() {
     this.applySearchFilter();
+
+    // After fetching students, update the totalRecords property
+    this.totalRecords = this.filteredStudents.length;
   }
 
   toggleDetails(student: Student) {
