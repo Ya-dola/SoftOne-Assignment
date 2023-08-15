@@ -2,6 +2,15 @@
 <!-- New Student Button -->
 <button (click)="createNewStudent()">New</button>
 
+<!-- Add sorting buttons -->
+<button (click)="sortStudents('nic')">Sort by NIC</button>
+<button (click)="sortStudents('firstName')">Sort by First Name</button>
+<button (click)="sortStudents('lastName')">Sort by Last Name</button>
+<button (click)="sortStudents('dateOfBirth')">Sort by Date of Birth</button>
+
+<!-- Search input -->
+<input type="text" [(ngModel)]="searchQuery" (input)="searchStudents()" placeholder="Search...">
+
 <!-- Create Form (conditionally displayed) -->
 <div *ngIf="creatingStudent" class="edit-form">
     <h2>Create Student</h2>
@@ -35,12 +44,6 @@
         <button type="button" (click)="cancelEdit()">Cancel</button>
     </form>
 </div>
-
-<!-- Add sorting buttons -->
-<button (click)="sortStudents('nic')">Sort by NIC</button>
-<button (click)="sortStudents('firstName')">Sort by First Name</button>
-<button (click)="sortStudents('lastName')">Sort by Last Name</button>
-<button (click)="sortStudents('dateOfBirth')">Sort by Date of Birth</button>
 
 <!-- Student Grid -->
 <div class="student-grid">

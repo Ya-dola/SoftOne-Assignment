@@ -17,10 +17,15 @@ export class StudentGridComponent implements OnInit {
   sortedStudents: Student[] = [];
   sortField: string = 'nic'; // Default sorting field
   sortDirection: 'asc' | 'desc' = 'asc'; // Default sorting direction
+  // Add a property for the search query
+  searchQuery: string = '';
+  // Add a property to store filtered students
+  filteredStudents: Student[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.sortDirection = 'desc';
     this.fetchStudents();
   }
 
@@ -34,8 +39,11 @@ export class StudentGridComponent implements OnInit {
           student.profileImgUrl = `Student/GetProfileImage/${student.nic}`;
         }
 
-        // Initialize sortedStudents with students
-        this.sortedStudents = [...this.students];
+        // // Initialize sortedStudents with students
+        // this.sortedStudents = [...this.students];
+
+        // Apply search filter initially onto sortedStudents
+        this.applySearchFilter();
 
         console.log('Students Fetched', response);
       },
@@ -180,8 +188,8 @@ export class StudentGridComponent implements OnInit {
       this.sortDirection = 'asc'; // Default to ascending order for the selected field
     }
 
-    // Sort students based on the selected field and direction
-    this.sortedStudents = [...this.students].sort((a, b) => {
+    // Sort filtered students based on the selected field and direction
+    this.sortedStudents = [...this.filteredStudents].sort((a, b) => {
       if (field === 'dateOfBirth') {
         const dateA = new Date(a[field]).getTime();
         const dateB = new Date(b[field]).getTime();
@@ -192,5 +200,27 @@ export class StudentGridComponent implements OnInit {
           : b[field].localeCompare(a[field]);
       }
     });
+  }
+
+  applySearchFilter() {
+    if (this.searchQuery) {
+      const lowerCaseSearchQuery = this.searchQuery.toLowerCase();
+      this.filteredStudents = this.students.filter(
+        (student) =>
+          student.firstName.toLowerCase().includes(lowerCaseSearchQuery) ||
+          student.lastName.toLowerCase().includes(lowerCaseSearchQuery) ||
+          student.mobile.includes(this.searchQuery) ||
+          student.email.toLowerCase().includes(lowerCaseSearchQuery) ||
+          student.nic.toLowerCase().includes(lowerCaseSearchQuery),
+      );
+    } else {
+      this.filteredStudents = [...this.students]; // Reset the filter
+    }
+    this.sortStudents(this.sortField); // Apply sorting
+  }
+
+  // Method to handle search input changes
+  searchStudents() {
+    this.applySearchFilter();
   }
 }

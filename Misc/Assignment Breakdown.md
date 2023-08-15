@@ -34,17 +34,20 @@
 
 ### Day 5
 
+- Implement sorting functionality for the student list. ✅
+- Add a search bar to search for Students that are in Summary View. ✅
+    - Summary View: FirstName - LastName - Mobile - Email - NIC ✅
 - Restructure the UI with flex grids and css. ❓
 - Expand the student list UI to include a details section. ❓
+    - Summary has: FirstName - LastName - Mobile - Email - NIC
+    - Details has all the fields
 - Implement Angular functionality to populate the details section when a student is clicked. ❓
 - Implement pagination functionality for the student list in the Angular frontend.
-- Add a search bar to search for localStudents by any field in the list.
-- Implement sorting functionality for the student list.
 - Test pagination, searching, and sorting to ensure they are working as expected.
 - Make Sure Everything Looks Pretty.
-- Remove Unwanted Information from Nav Bar
-- Remove All Unused Code
-- Write README.md for the Project
+- Remove Unwanted Information from Nav Bar.
+- Remove All Unused Code and Clean up AppModule.
+- Write README.md for the Project.
 
 # OLD
 

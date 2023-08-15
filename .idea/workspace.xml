@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/student-grid/student-grid.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Misc/Assignment Breakdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/Misc/Assignment Breakdown.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <workItem from="1691993613875" duration="20833000" />
       <workItem from="1692039632728" duration="94000" />
       <workItem from="1692039745292" duration="3395000" />
-      <workItem from="1692079130121" duration="5079000" />
+      <workItem from="1692079130121" duration="7891000" />
     </task>
     <servers />
   </component>
