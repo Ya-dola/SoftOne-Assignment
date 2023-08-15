@@ -103,58 +103,117 @@ export class StudentGridComponent implements OnInit {
   }
 
   editStudent(student: Student) {
-    // Enable editing mode and populate the editingStudent object
-    this.editingStudent = { ...student };
-
-    this.editingStudent.dobString = this.formatDobString(
-      this.editingStudent.dateOfBirth,
-    );
+    student.showDetails = false;
+    student.editing = true; // Set editing mode for the clicked student
+    student.dobString = this.formatDobString(student.dateOfBirth);
   }
 
-  cancelEdit() {
-    // Exit editing mode and revert changes
-    this.editingStudent = null;
+  cancelEdit(student: Student) {
+    student.editing = false; // Exit editing mode for the clicked student
   }
 
-  updateStudent() {
-    if (this.editingStudent) {
+  updateStudent(student: Student) {
+    if (student) {
       const formData = new FormData();
 
       // Add student data fields to the FormData
-      formData.append('nic', this.editingStudent.nic);
-      formData.append('firstName', this.editingStudent.firstName);
-      formData.append('lastName', this.editingStudent.lastName);
-      formData.append(
-        'dobString',
-        JSON.stringify(this.editingStudent.dobString),
-      );
-      formData.append('email', this.editingStudent.email);
-      formData.append('mobile', this.editingStudent.mobile);
-      formData.append('address', this.editingStudent.address);
+      formData.append('nic', student.nic);
+      formData.append('firstName', student.firstName);
+      formData.append('lastName', student.lastName);
+      formData.append('dobString', JSON.stringify(student.dobString));
+      formData.append('email', student.email);
+      formData.append('mobile', student.mobile);
+      formData.append('address', student.address);
 
       // Add the selected image to the FormData
-      if (this.selectedImage) formData.append('profileImg', this.selectedImage);
+      if (this.selectedImage) {
+        formData.append('profileImg', this.selectedImage);
+      }
 
-      // Make an HTTP POST request for JSON data
-      this.http
-        .post(`Student/${this.editingStudent.nic}`, formData)
-        .subscribe(() => {
+      // Make an HTTP POST request to update the student
+      this.http.post(`Student/${student.nic}`, formData).subscribe(
+        () => {
           console.log('Student updated successfully');
-          this.editingStudent = null; // Exit editing mode
-          this.fetchStudents(); // Refresh the student data
-        });
+          student.editing = false; // Exit editing mode for this student
+          this.selectedImage = null; // Clear selected image
+          this.resetComponentState(); // Reset the component's state
+        },
+        (error) => {
+          console.error('Error updating student:', error);
+        },
+      );
     }
   }
 
-  deleteStudent(nic: string) {
+  resetComponentState() {
+    this.newStudent = new Student('', '', '', new Date(), '', '', '', '', '');
+    this.students = [];
+    this.editingStudent = null;
+    this.selectedImage = null;
+    this.creatingStudent = false;
+    this.sortDirection = 'desc';
+    this.searchQuery = '';
+    this.filteredStudents = [];
+    this.sortedStudents = [];
+    this.fetchStudents(); // Call the method to fetch student data again
+  }
+
+  // editStudent(student: Student) {
+  //   // Enable editing mode and populate the editingStudent object
+  //   this.editingStudent = { ...student };
+  //
+  //   this.editingStudent.dobString = this.formatDobString(
+  //     this.editingStudent.dateOfBirth,
+  //   );
+  // }
+  //
+  // cancelEdit() {
+  //   // Exit editing mode and revert changes
+  //   this.editingStudent = null;
+  // }
+
+  // updateStudent() {
+  //   if (this.editingStudent) {
+  //     const formData = new FormData();
+  //
+  //     // Add student data fields to the FormData
+  //     formData.append('nic', this.editingStudent.nic);
+  //     formData.append('firstName', this.editingStudent.firstName);
+  //     formData.append('lastName', this.editingStudent.lastName);
+  //     formData.append(
+  //       'dobString',
+  //       JSON.stringify(this.editingStudent.dobString),
+  //     );
+  //     formData.append('email', this.editingStudent.email);
+  //     formData.append('mobile', this.editingStudent.mobile);
+  //     formData.append('address', this.editingStudent.address);
+  //
+  //     // Add the selected image to the FormData
+  //     if (this.selectedImage) formData.append('profileImg', this.selectedImage);
+  //
+  //     // Make an HTTP POST request for JSON data
+  //     this.http
+  //       .post(`Student/${this.editingStudent.nic}`, formData)
+  //       .subscribe(() => {
+  //         console.log('Student updated successfully');
+  //         this.editingStudent = null; // Exit editing mode
+  //         this.fetchStudents(); // Refresh the student data
+  //       });
+  //   }
+  // }
+
+  deleteStudent(student: Student) {
+    student.showDetails = false;
     const confirmDelete = confirm(
-      'Are you sure you want to delete this student?',
+      `Are you sure you want to delete Student: \n` +
+        `Name: \"${student.firstName} ${student.lastName}\" \n` +
+        `NIC: \'${student.nic}\' ?`,
     );
     if (!confirmDelete) {
       return;
     }
 
-    this.http.delete(`Student/${nic}`).subscribe(
+    this.http.delete(`Student/${student.nic}`).subscribe(
       () => {
         console.log('Student deleted successfully');
         this.fetchStudents(); // Refresh the student data after deletion
@@ -190,15 +249,15 @@ export class StudentGridComponent implements OnInit {
 
     // Sort filtered students based on the selected field and direction
     this.sortedStudents = [...this.filteredStudents].sort((a, b) => {
-      if (field === 'dateOfBirth') {
-        const dateA = new Date(a[field]).getTime();
-        const dateB = new Date(b[field]).getTime();
-        return this.sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
-      } else {
-        return this.sortDirection === 'asc'
-          ? a[field].localeCompare(b[field])
-          : b[field].localeCompare(a[field]);
-      }
+      // if (field === 'dateOfBirth') {
+      //   const dateA = new Date(a[field]).getTime();
+      //   const dateB = new Date(b[field]).getTime();
+      //   return this.sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
+      // } else {
+      return this.sortDirection === 'asc'
+        ? a[field].localeCompare(b[field])
+        : b[field].localeCompare(a[field]);
+      // }
     });
   }
 
@@ -222,5 +281,9 @@ export class StudentGridComponent implements OnInit {
   // Method to handle search input changes
   searchStudents() {
     this.applySearchFilter();
+  }
+
+  toggleDetails(student: Student) {
+    student.showDetails = !student.showDetails;
   }
 }

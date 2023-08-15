@@ -8,6 +8,7 @@ export class Student {
   public mobile: string;
   public address: string;
   public profileImgUrl: string;
+  public showDetails: boolean = false;
 
   constructor(
     nic: string,

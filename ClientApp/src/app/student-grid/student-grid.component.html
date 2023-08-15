@@ -1,12 +1,4 @@
 <h1>Student Grid</h1>
-<!-- New Student Button -->
-<button (click)="createNewStudent()">New</button>
-
-<!-- Add sorting buttons -->
-<button (click)="sortStudents('nic')">Sort by NIC</button>
-<button (click)="sortStudents('firstName')">Sort by First Name</button>
-<button (click)="sortStudents('lastName')">Sort by Last Name</button>
-<button (click)="sortStudents('dateOfBirth')">Sort by Date of Birth</button>
 
 <!-- Search input -->
 <input type="text" [(ngModel)]="searchQuery" (input)="searchStudents()" placeholder="Search...">
@@ -29,42 +21,163 @@
 </div>
 
 <!-- Edit Student Form -->
-<div *ngIf="editingStudent" class="edit-form">
-    <h2>Edit Student</h2>
-    <form (ngSubmit)="updateStudent()">
-        <div><strong>NIC:</strong> <input [(ngModel)]="editingStudent.nic" name="nic"></div>
-        <div><strong>First Name:</strong> <input [(ngModel)]="editingStudent.firstName" name="firstName"></div>
-        <div><strong>Last Name:</strong> <input [(ngModel)]="editingStudent.lastName" name="lastName"></div>
-        <div><strong>Date:</strong> <input [(ngModel)]="editingStudent.dobString" name="dateOfBirth" type="date"></div>
-        <div><strong>Email:</strong> <input [(ngModel)]="editingStudent.email" name="email" type="email"></div>
-        <div><strong>Mobile:</strong> <input [(ngModel)]="editingStudent.mobile" name="mobile"></div>
-        <div><strong>Address:</strong> <input [(ngModel)]="editingStudent.address" name="address"></div>
-        <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>
-        <button type="submit">Save Changes</button>
-        <button type="button" (click)="cancelEdit()">Cancel</button>
-    </form>
-</div>
+<!--<div *ngIf="editingStudent" class="edit-form">-->
+<!--    <h2>Edit Student</h2>-->
+<!--    <form (ngSubmit)="updateStudent()">-->
+<!--        <div><strong>NIC:</strong> <input [(ngModel)]="editingStudent.nic" name="nic"></div>-->
+<!--        <div><strong>First Name:</strong> <input [(ngModel)]="editingStudent.firstName" name="firstName"></div>-->
+<!--        <div><strong>Last Name:</strong> <input [(ngModel)]="editingStudent.lastName" name="lastName"></div>-->
+<!--        <div><strong>Date:</strong> <input [(ngModel)]="editingStudent.dobString" name="dateOfBirth" type="date"></div>-->
+<!--        <div><strong>Email:</strong> <input [(ngModel)]="editingStudent.email" name="email" type="email"></div>-->
+<!--        <div><strong>Mobile:</strong> <input [(ngModel)]="editingStudent.mobile" name="mobile"></div>-->
+<!--        <div><strong>Address:</strong> <input [(ngModel)]="editingStudent.address" name="address"></div>-->
+<!--        <div><strong>Profile Img:</strong> <input type="file" (change)="onFileSelected($event)" accept="image/*"></div>-->
+<!--        <button type="submit">Save Changes</button>-->
+<!--        <button type="button" (click)="cancelEdit()">Cancel</button>-->
+<!--    </form>-->
+<!--</div>-->
 
-<!-- Student Grid -->
-<div class="student-grid">
-    <div class="student-row" *ngFor="let student of sortedStudents">
-        <div class="student-info">
-            <div><strong>NIC:</strong> {{ student.nic }}</div>
-            <div><strong>First Name:</strong> {{ student.firstName }}</div>
-            <div><strong>Last Name:</strong> {{ student.lastName }}</div>
-            <div><strong>Date:</strong> {{ student.dateOfBirth | date: 'dd/MM/yyyy' }}</div>
-            <div><strong>Email:</strong> {{ student.email }}</div>
-            <div><strong>Mobile:</strong> {{ student.mobile }}</div>
-            <div><strong>Address:</strong> {{ student.address }}</div>
-            <div *ngIf="student.profileImgUrl">
-                <strong>Profile Img:</strong>
-                <img [src]="student.profileImgUrl" alt="Profile Image">
+<div class="grid">
+    <div class="student-row">
+        <div>Profile</div>
+        <!--Sorting Buttons-->
+        <button (click)="sortStudents('nic')">NIC</button>
+        <button (click)="sortStudents('firstName')">First Name</button>
+        <button (click)="sortStudents('lastName')">Last Name</button>
+        <button (click)="sortStudents('email')">Email</button>
+        <button (click)="sortStudents('mobile')">Mobile</button>
+        <!--        <button (click)="sortStudents('dateOfBirth')">Sort by Date of Birth</button>-->
+        <!-- New Student Button -->
+        <button (click)="createNewStudent()">New</button>
+    </div>
+    <div class="student-view" *ngFor="let student of sortedStudents">
+        <div class="student-row" (click)="toggleDetails(student)">
+            <img [src]="student.profileImgUrl" alt="Profile Image" class="stu-img">
+            <div>{{student.nic}}</div>
+            <div>{{student.firstName}}</div>
+            <div>{{student.lastName}}</div>
+            <div>{{student.email}}</div>
+            <div>{{student.mobile}}</div>
+            <div class="actions">
+                <button (click)="editStudent(student)">Edit</button>
+                <button (click)="deleteStudent(student)">Delete</button>
             </div>
         </div>
-        <div class="edit-actions">
-            <button (click)="editStudent(student)">Edit</button>
-            <button (click)="deleteStudent(student.nic)">Delete</button>
+        <div class="student-details" *ngIf="student.showDetails"
+             [ngClass]="{'hide': student.editing}">
+            <img [src]="student.profileImgUrl" alt="Profile Image" class="img">
+            <div class="section-border"></div>
+            <div class="section">
+                <div class="info">
+                    <div>NIC</div>
+                    <div>{{student.nic}}</div>
+                </div>
+                <div class="info">
+                    <div>First Name</div>
+                    <div>{{student.firstName}}</div>
+                </div>
+                <div class="info">
+                    <div>Last Name</div>
+                    <div>{{student.lastName}}</div>
+                </div>
+                <div class="info">
+                    <div>Date of Birth</div>
+                    <div>{{student.dateOfBirth | date: 'dd/MM/yyyy'}}</div>
+                </div>
+            </div>
+            <div class="section-border"></div>
+            <div class="section">
+                <div class="info">
+                    <div>Email</div>
+                    <div>{{student.email}}</div>
+                </div>
+                <div class="info">
+                    <div>Mobile</div>
+                    <div>{{student.mobile}}</div>
+                </div>
+                <div class="info">
+                    <div>Address</div>
+                    <div>{{student.address}}</div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="student.editing">
+            <form class="student-editing" (ngSubmit)="updateStudent(student)">
+                <div class="section">
+                    <div class="info">
+                        <div>NIC</div>
+                        <input [(ngModel)]="student.nic" name="nic" disabled>
+                    </div>
+                    <div class="info">
+                        <div>First Name</div>
+                        <input [(ngModel)]="student.firstName" name="firstName">
+                    </div>
+                    <div class="info">
+                        <div>Last Name</div>
+                        <input [(ngModel)]="student.lastName" name="lastName">
+                    </div>
+                    <div class="info">
+                        <div>Date of Birth</div>
+                        <input [(ngModel)]="student.dobString" name="dateOfBirth" type="date">
+                    </div>
+                </div>
+                <div class="section-border"></div>
+                <div class="section">
+                    <div class="info">
+                        <div>Email</div>
+                        <input [(ngModel)]="student.email" name="email" type="email">
+                    </div>
+                    <div class="info">
+                        <div>Mobile</div>
+                        <input [(ngModel)]="student.mobile" name="mobile">
+                    </div>
+                    <div class="info">
+                        <div>Address</div>
+                        <input [(ngModel)]="student.address" name="address">
+                    </div>
+                    <div class="info">
+                        <div>Profile Img</div>
+                        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                    </div>
+                </div>
+                <div class="section-border"></div>
+                <div class="actions">
+                    <button type="submit">Save Changes</button>
+                    <button type="button" (click)="cancelEdit(student)">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<!-- Student Grid -->
+<!--<div class="student-grid">-->
+<!--    <div class="student-card" *ngFor="let student of sortedStudents">-->
+<!--        &lt;!&ndash; Main Card &ndash;&gt;-->
+<!--        <div class="student-info">-->
+<!--            <div><strong>NIC:</strong> {{ student.nic }}</div>-->
+<!--            <div><strong>First Name:</strong> {{ student.firstName }}</div>-->
+<!--            <div><strong>Last Name:</strong> {{ student.lastName }}</div>-->
+<!--            <div><strong>Mobile:</strong> {{ student.mobile }}</div>-->
+<!--            <div><strong>Email:</strong> {{ student.email }}</div>-->
+<!--            <button (click)="toggleDetails(student)">View Details</button>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Details Section &ndash;&gt;-->
+<!--        <div *ngIf="student.showDetails" class="details-section">-->
+<!--            <div><strong>Address:</strong> {{ student.address }}</div>-->
+<!--            <div><strong>Date:</strong> {{ student.dateOfBirth | date: 'dd/MM/yyyy' }}</div>-->
+<!--            <div *ngIf="student.profileImgUrl">-->
+<!--                <strong>Profile Img:</strong>-->
+<!--                <img [src]="student.profileImgUrl" alt="Profile Image">-->
+<!--            </div>-->
+<!--            <button (click)="toggleDetails(student)">Hide Details</button>-->
+<!--        </div>-->
+
+<!--        <div class="edit-actions">-->
+<!--            <button (click)="editStudent(student)">Edit</button>-->
+<!--            <button (click)="deleteStudent(student.nic)">Delete</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 

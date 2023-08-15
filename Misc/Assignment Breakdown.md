@@ -36,13 +36,14 @@
 
 - Implement sorting functionality for the student list. ✅
 - Add a search bar to search for Students that are in Summary View. ✅
-    - Summary View: FirstName - LastName - Mobile - Email - NIC ✅
-- Restructure the UI with flex grids and css. ❓
-- Expand the student list UI to include a details section. ❓
-    - Summary has: FirstName - LastName - Mobile - Email - NIC
-    - Details has all the fields
-- Implement Angular functionality to populate the details section when a student is clicked. ❓
-- Implement pagination functionality for the student list in the Angular frontend.
+    - Summary View: NIC - FirstName - LastName - Email - Mobile ✅
+- Restructure the UI with flex grids and css. ✅
+- Expand the student list UI to include a details section. ✅
+    - Summary has: NIC - FirstName - LastName - Email - Mobile ✅
+    - Details has All the fields ✅
+- Implement Angular functionality to populate the details section when a student is clicked. ✅
+- Implement Pagination functionality for the student list in the Angular frontend.
+- Add Indication to Related Sorting Button when Sorting is Applied
 - Test pagination, searching, and sorting to ensure they are working as expected.
 - Make Sure Everything Looks Pretty.
 - Remove Unwanted Information from Nav Bar.
